@@ -1,12 +1,33 @@
-import { ThemeProvider } from "styled-components";
-import { GlobalStyle } from "./GlobalStyle";
-import { theme } from "./theme";
+import { Container, TaleContent, TaleImage, } from "../components/TaleContainer";
+import { DataProduction, DataRelease, Tag, Tags, Subtitle, Header, Data } from "../components/TaleData";
+import poster from "../poster.jpg"
 
 function App() {
   return (
-    <ThemeProvider theme={theme}>
-      <GlobalStyle />
-    </ThemeProvider>
+    <Container>
+      <TaleImage src={poster} alt="" />
+      <TaleContent>
+        <Header>
+          Mulan
+        </Header>
+        <Subtitle>
+          2020
+        </Subtitle>
+        <Data>
+          <DataProduction>
+            Production: China, United States of America
+          </DataProduction>
+          <DataRelease>
+            Realese date: 24.10.2020
+          </DataRelease>
+        </Data>
+        <Tags>
+          <Tag>Action</Tag>
+          <Tag>Adventure</Tag>
+          <Tag>Drama</Tag>
+        </Tags>
+      </TaleContent>
+    </Container>
   );
 }
 
