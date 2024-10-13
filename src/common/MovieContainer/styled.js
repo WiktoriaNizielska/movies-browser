@@ -1,5 +1,11 @@
-import styled from "styled-components"
+import styled from "styled-components";
 
+export const MovieImage = styled.img`
+`
+export const MovieContent = styled.div`
+    padding-left: 40px;
+    font-weight: 400;
+`
 export const Header = styled.header`
     font-weight: 600;
     padding-bottom: 24px;
@@ -16,9 +22,9 @@ export const Data = styled.div`
     font-weight: 400;
 `
 
-export const DataProduction = styled.div``
+export const DateProduction = styled.div``
 
-export const DataRelease = styled.div``
+export const DateRelease = styled.div``
 
 export const Tags = styled.ul`
     display: flex;
@@ -35,3 +41,16 @@ export const Tag = styled.li`
     margin: 8px;
     border-radius: 5px;
 `
+
+export const Rate = styled.div`
+padding-top: 24px;
+padding-bottom: 24px;
+`
+export const Description = styled.p`
+
+`
+
+
+
+
+
