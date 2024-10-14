@@ -1,11 +1,11 @@
-import { Container } from "../common/Container";
+import { Container } from "../common/Container/styled";
 import { MovieContainer } from "../common/MovieContainer";
 
 
 function App() {
   return (
     <Container>
-      <MovieContainer/>
+      <MovieContainer />
     </Container>
   );
 }
