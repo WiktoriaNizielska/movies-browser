@@ -18,6 +18,7 @@ export const theme = {
     mobileMax: 767,
     tabletVerticalMax: 991,
     tabletHorizontalMax: 1199,
+    laptopMax: 1400,
   },
   shadows: {
     tile: "0px 4px 12px 0px #BAC7D580",
