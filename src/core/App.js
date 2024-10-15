@@ -1,24 +1,26 @@
 import { HashRouter, Redirect, Route, Switch } from "react-router-dom/cjs/react-router-dom";
-import { Camera, StyledNavigation, StyledNavLink, Title } from "./styled";
+import { Camera, Container, NavLinkContainer, StyledNavigation, StyledNavLink, Title } from "./styled";
 import { MovieDetails } from "../features/movies/MovieDetails";
 
 function App() {
   return (
     <HashRouter>
-      <nav>
-        <StyledNavigation>
-        <Title>
-          <Camera/>
-          Movies Browser
-        </Title>
-          <li>
-            <StyledNavLink to="/movies">Movies</StyledNavLink>
-          </li>
-          <li>
-            <StyledNavLink to="/people">People</StyledNavLink>
-          </li>
-        </StyledNavigation>
-      </nav>
+      <StyledNavigation>
+        <Container>
+          <Title>
+            <Camera />
+            Movies&nbsp;Browser
+          </Title>
+          <NavLinkContainer>
+            <li>
+              <StyledNavLink to="/movies">Movies</StyledNavLink>
+            </li>
+            <li>
+              <StyledNavLink to="/people">People</StyledNavLink>
+            </li>
+          </NavLinkContainer>
+        </Container>
+      </StyledNavigation>
       <Switch>
         <Route path="/movies">
           <MovieDetails />
