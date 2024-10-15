@@ -13,34 +13,41 @@ import {
 } from "./styled"
 import poster from "../../images/poster.jpg"
 
-export const MovieContainer = () => (
+export const MovieContainer = ({
+    movieTitle,
+    movieYear,
+    tag,
+    movieDescription,
+    movieProduction,
+    movieRelease
+}) => (
     <>
         <MovieImage src={poster} alt="" />
         <MovieContent>
             <Header>
-                Mulan
+                {movieTitle}
             </Header>
             <Subtitle>
-                2020
+                {movieYear}
             </Subtitle>
             <Data>
                 <DateProduction>
-                    Production: China, United States of America
+                    {movieProduction}
                 </DateProduction>
                 <DateRelease>
-                    Realese date: 24.10.2020
+                    {movieRelease}
                 </DateRelease>
             </Data>
             <Tags>
-                <Tag>Action</Tag>
-                <Tag>Adventure</Tag>
-                <Tag>Drama</Tag>
+                <Tag>{tag}</Tag>
+                <Tag>{tag}</Tag>
+                <Tag>{tag}</Tag>
             </Tags>
             <Rate>
                 <Star />
             </Rate>
             <Description>
-                Movie description
+                {movieDescription}
             </Description>
         </MovieContent>
     </>
