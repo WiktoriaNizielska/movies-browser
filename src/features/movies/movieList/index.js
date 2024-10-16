@@ -30,7 +30,7 @@ export const MovieList = () => {
     <TileMovie>
       <MovieImage >
         {movies.map(movie =>
-          <img src={`https://image.tmdb.org/t/p/w500/${movie.backdrop_path}`} alt="" />
+          <img key={movie.id} src={`https://image.tmdb.org/t/p/w500/${movie.backdrop_path}`} alt="" />
         )}
       </MovieImage>
     </TileMovie>
