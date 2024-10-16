@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react"
-import { MovieImage, TileMovie } from "./styled"
+import { MainPageContainer, MainPageMovie, } from "./styled"
+import { Star } from "../../../common/MovieContainer/styled";
 
 export const MovieList = () => {
   const [movies, showMovies] = useState([])
@@ -27,12 +28,15 @@ export const MovieList = () => {
   }, []);
 
   return (
-    <TileMovie>
-      <MovieImage >
-        {movies.map(movie =>
+    <MainPageContainer>
+      {movies.map(movie =>
+        <MainPageMovie key={movie.id}>
           <img key={movie.id} src={`https://image.tmdb.org/t/p/w500/${movie.backdrop_path}`} alt="" />
-        )}
-      </MovieImage>
-    </TileMovie>
+          {movie.original_title}<br />
+          {movie.release_date}<br />
+          <Star />{movie.vote_average} {""}<br /> {movie.vote_count} votes
+        </MainPageMovie>
+      )}
+    </MainPageContainer>
   );
-}
+};
