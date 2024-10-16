@@ -1,6 +1,8 @@
 import { HashRouter, Redirect, Route, Switch } from "react-router-dom/cjs/react-router-dom";
 import { Camera, Container, NavLinkContainer, StyledNavigation, StyledNavLink, Title } from "./styled";
-import { MovieDetails } from "../features/movies/MovieDetails";
+
+import { MovieContainer } from "../common/MovieContainer";
+import { MovieList } from "../features/movies/MovieList/index";
 
 function App() {
   return (
@@ -23,7 +25,10 @@ function App() {
       </StyledNavigation>
       <Switch>
         <Route path="/movies">
-          <MovieDetails />
+          <MovieList/>
+        </Route>
+        <Route path="/movie">
+          <MovieContainer />
         </Route>
         <Route path="/people">
         </Route>
