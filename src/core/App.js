@@ -2,7 +2,7 @@ import { HashRouter, Redirect, Route, Switch } from "react-router-dom/cjs/react-
 import { Camera, Container, NavLinkContainer, StyledNavigation, StyledNavLink, Title } from "./styled";
 
 import { MovieContainer } from "../common/MovieContainer";
-import { MovieList } from "../features/movies/MovieList/index";
+import { MovieList } from "../features/movies/MovieList/index"
 
 function App() {
   return (
