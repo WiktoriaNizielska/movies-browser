@@ -96,3 +96,7 @@ export const Camera = styled(CameraIcon)`
       height: 17px;
   }
 `;
+
+export const Input = styled.input`
+`
+

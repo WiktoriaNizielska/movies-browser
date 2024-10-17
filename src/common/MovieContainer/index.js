@@ -11,7 +11,6 @@ import {
     Description,
     Star
 } from "./styled"
-import poster from "../../images/poster.jpg"
 
 export const MovieContainer = ({
     movieTitle,
@@ -22,7 +21,7 @@ export const MovieContainer = ({
     movieRelease
 }) => (
     <>
-        <MovieImage src={poster} alt="" />
+        <MovieImage/>
         <MovieContent>
             <Header>
                 {movieTitle}
