@@ -1,8 +1,15 @@
 import { HashRouter, Redirect, Route, Switch } from "react-router-dom/cjs/react-router-dom";
-import { Camera, Container, NavLinkContainer, StyledNavigation, StyledNavLink, Title } from "./styled";
-
+import {
+  Camera,
+  Container,
+  NavLinkContainer,
+  StyledNavigation,
+  StyledNavLink,
+  Title,
+} from "./styled";
 import { MovieContainer } from "../common/MovieContainer";
 import { MovieList } from "../features/movies/MovieList/index"
+import { SearchInput } from "../common/Input";
 
 function App() {
   return (
@@ -20,12 +27,13 @@ function App() {
             <li>
               <StyledNavLink to="/people">People</StyledNavLink>
             </li>
+            <SearchInput />
           </NavLinkContainer>
         </Container>
       </StyledNavigation>
       <Switch>
         <Route path="/movies">
-          <MovieList/>
+          <MovieList />
         </Route>
         <Route path="/movie">
           <MovieContainer />
