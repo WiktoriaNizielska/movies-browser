@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react"
-import { MainPageContainer, MainPageMovie, } from "./styled"
+import { Header, MainPageContainer, MainPageMovie, Wrapper, } from "./styled"
 import { Star } from "../../../common/MovieContainer/styled";
+import { Pagination } from "../../../common/Pagination";
 
 export const MovieList = () => {
   const [movies, showMovies] = useState([])
@@ -34,27 +35,31 @@ export const MovieList = () => {
   }, []);
 
   return (
-    <MainPageContainer>
-      {movies.map(movie =>
-        <MainPageMovie
-          key={movie.id}>
-          <img
-            key={movie.id}
-            src={`https://image.tmdb.org/t/p/w500/${movie.backdrop_path}`} alt=""
-          />
-          {movie.original_title}<br />
-          {movie.release_date}<br />
-          <Star />
-          {movie.vote_average} {""}<br />
-          {movie.vote_count} votes<br />
-          {movie.genre_ids.map((id) =>
-            <li>
-              {movieGenres.find((genreId) =>
-                genreId.id === id).name}
-            </li>
-          )}
-        </MainPageMovie>
-      )}
-    </MainPageContainer>
+    <Wrapper>
+    <Header>Popular movies</Header>
+      <MainPageContainer>
+        {movies.map(movie =>
+          <MainPageMovie
+            key={movie.id}>
+            <img
+              key={movie.id}
+              src={`https://image.tmdb.org/t/p/w500/${movie.backdrop_path}`} alt=""
+            />
+            {movie.original_title}<br />
+            {movie.release_date}<br />
+            <Star />
+            {movie.vote_average} {""}<br />
+            {movie.vote_count} votes<br />
+            {movie.genre_ids.map((id) =>
+              <li>
+                {movieGenres.find((genreId) =>
+                  genreId.id === id).name}
+              </li>
+            )}
+          </MainPageMovie>
+        )}
+      </MainPageContainer>
+      <Pagination></Pagination>
+    </Wrapper>
   );
 };
