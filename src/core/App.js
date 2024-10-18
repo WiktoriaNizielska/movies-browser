@@ -8,7 +8,7 @@ import {
   Title,
 } from "./styled";
 import { MovieContainer } from "../common/MovieContainer";
-import { MovieList } from "../features/movies/MovieList/index"
+import { MovieList } from "../features/movies/movieList/index";
 import { SearchInput } from "../common/Input";
 
 function App() {
