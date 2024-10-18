@@ -13,6 +13,7 @@ export const theme = {
     lightBlue: "#D6E4FF",
     valentino: "#230B34",
     whisper:"#F5F5FA",
+    mineShaft:"#333333",
   },
   breakpoint: {
     mobileMax: 767,
