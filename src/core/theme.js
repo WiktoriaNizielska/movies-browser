@@ -12,16 +12,18 @@ export const theme = {
     blue: "#0044CC",
     lightBlue: "#D6E4FF",
     valentino: "#230B34",
-    whisper:"#F5F5FA",
-    mineShaft:"#333333",
+    whisper: "#F5F5FA",
+    mineShaft: "#333333",
   },
   breakpoint: {
+    mobileXS: 319,
+    mobileS: 510,
     mobileMax: 767,
     tabletVerticalMax: 991,
     tabletHorizontalMax: 1199,
     laptopMax: 1400,
   },
-  shadows: {
+  shadow: {
     tile: "0px 4px 12px 0px #BAC7D580",
   }
 };
