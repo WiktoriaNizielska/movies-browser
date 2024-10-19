@@ -5,7 +5,7 @@ import {
   NavLinkContainer,
   StyledNavigation,
   StyledNavLink,
-  Title,
+  Title
 } from "./styled";
 import { MovieContainer } from "../common/MovieContainer";
 import { MovieList } from "../features/movies/movieList/index";
@@ -27,8 +27,8 @@ function App() {
             <li>
               <StyledNavLink to="/people">People</StyledNavLink>
             </li>
-            <SearchInput />
           </NavLinkContainer>
+          <SearchInput />
         </Container>
       </StyledNavigation>
       <Switch>
