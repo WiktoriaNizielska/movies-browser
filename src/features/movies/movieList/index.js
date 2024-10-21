@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react"
-import { MainPageContainer, MainPageMovie, } from "./styled"
-import { Star } from "../../../common/MovieContainer/styled";
+import { Container, GenresContainer, GenreTag, Header, Image, MainPageContainer, MainPageMovie, Rate, RateContainer, Star, TextWrapper, Title, Votes, Wrapper, Year } from "./styled";
+import { Pagination } from "../../../common/Pagination";
 
 export const MovieList = () => {
   const [movies, showMovies] = useState([])
@@ -34,27 +34,39 @@ export const MovieList = () => {
   }, []);
 
   return (
-    <MainPageContainer>
-      {movies.map(movie =>
-        <MainPageMovie
-          key={movie.id}>
-          <img
-            key={movie.id}
-            src={`https://image.tmdb.org/t/p/w500/${movie.backdrop_path}`} alt=""
-          />
-          {movie.original_title}<br />
-          {movie.release_date}<br />
-          <Star />
-          {movie.vote_average} {""}<br />
-          {movie.vote_count} votes<br />
-          {movie.genre_ids.map((id) =>
-            <li>
-              {movieGenres.find((genreId) =>
-                genreId.id === id).name}
-            </li>
-          )}
-        </MainPageMovie>
-      )}
-    </MainPageContainer>
+    <Wrapper>
+      <Header>Popular movies</Header>
+      <MainPageContainer>
+        {movies.map(movie =>
+          <MainPageMovie
+            key={movie.id}>
+            <Image
+              key={movie.id}
+              src={`https://image.tmdb.org/t/p/w300_and_h450_bestv2/${movie.poster_path}`} alt="Poster"
+            />
+            <TextWrapper>
+              <Container>
+                <Title>{movie.original_title}</Title>
+                <Year>{movie.release_date}</Year>
+                <GenresContainer>
+                  {movie.genre_ids.map((id) =>
+                    <GenreTag>
+                      {movieGenres.find((genreId) =>
+                        genreId.id === id).name}
+                    </GenreTag>
+                  )}
+                </GenresContainer>
+              </Container>
+              <RateContainer>
+                <Star />
+                <Rate>{movie.vote_average.toFixed(1)}</Rate>
+                <Votes>{movie.vote_count} votes</Votes>
+              </RateContainer>
+            </TextWrapper>
+          </MainPageMovie>
+        )}
+      </MainPageContainer>
+      <Pagination></Pagination>
+    </Wrapper>
   );
 };
