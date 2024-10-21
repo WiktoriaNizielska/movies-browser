@@ -1,7 +1,12 @@
-import { Input } from "../../core/styled"
+import { Input, Search, SearchContainer } from "./styled"
 
 export const SearchInput = () => {
     return (
-        <Input />
+        <SearchContainer>
+            <Search />
+            <Input
+                placeholder="Search for movies..."
+            />
+        </SearchContainer>
     )
 }

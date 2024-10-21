@@ -5,7 +5,8 @@ import {
   NavLinkContainer,
   StyledNavigation,
   StyledNavLink,
-  Title
+  Title,
+  Wrapper
 } from "./styled";
 import { MovieContainer } from "../common/MovieContainer";
 import { MovieList } from "../features/movies/movieList/index";
@@ -16,18 +17,20 @@ function App() {
     <HashRouter>
       <StyledNavigation>
         <Container>
-          <Title>
-            <Camera />
-            Movies&nbsp;Browser
-          </Title>
-          <NavLinkContainer>
-            <li>
-              <StyledNavLink to="/movies">Movies</StyledNavLink>
-            </li>
-            <li>
-              <StyledNavLink to="/people">People</StyledNavLink>
-            </li>
-          </NavLinkContainer>
+          <Wrapper>
+            <Title>
+              <Camera />
+              Movies&nbsp;Browser
+            </Title>
+            <NavLinkContainer>
+              <li>
+                <StyledNavLink to="/movies">Movies</StyledNavLink>
+              </li>
+              <li>
+                <StyledNavLink to="/people">People</StyledNavLink>
+              </li>
+            </NavLinkContainer>
+          </Wrapper>
           <SearchInput />
         </Container>
       </StyledNavigation>

@@ -2,7 +2,7 @@ import styled from "styled-components";
 import { NavLink } from "react-router-dom/cjs/react-router-dom";
 import { ReactComponent as CameraIcon } from '../images/camera.svg';
 
-export const StyledNavigation = styled.ul`
+export const StyledNavigation = styled.nav`
   background-color: ${({ theme }) => theme.color.woodSmoke};
   margin: 0;
   list-style: none;
@@ -15,17 +15,40 @@ export const Container = styled.div`
   display: flex;
   align-items: center;
   gap: 60px;
-  justify-content: flex-start;
+  justify-content: space-between;
 
   @media(max-width:${({ theme }) => theme.breakpoint.laptopMax}px){
       margin: 0 16px;
-    }
+  }
+
+  @media(max-width:${({ theme }) => theme.breakpoint.tabletVerticalMax}px){
+      flex-wrap: wrap;
+      justify-content: center;
+      padding: 16px 0;
+      gap: 15px;
+  }
+
+    @media(max-width:${({ theme }) => theme.breakpoint.mobileMax}px){
+      display: grid;
+      grid-template-rows: 1fr auto;
+      padding: 0 16px 16px ;
+      gap: 0;
+      grid-template-columns: 1fr;
+  }
+`;
+
+export const Wrapper = styled.div`
+  display: flex;
+  align-items: center;
+  gap: 80px;
+  
+  @media(max-width:${({ theme }) => theme.breakpoint.tabletVerticalMax}px){
+      width: 100%;
+  }
 
   @media(max-width:${({ theme }) => theme.breakpoint.mobileMax}px){
-      gap: 16px;
-      margin: 0 16px;
-      justify-content: center;
-    }
+      gap: 20px;
+  }
 `;
 
 export const NavLinkContainer = styled.div`
@@ -34,8 +57,8 @@ export const NavLinkContainer = styled.div`
   gap: 16px;
   
   @media(max-width:${({ theme }) => theme.breakpoint.mobileMax}px){
-        gap:10px;
-    }
+        gap: 10px;
+  }
 `;
 
 export const StyledNavLink = styled(NavLink)`
@@ -53,10 +76,10 @@ export const StyledNavLink = styled(NavLink)`
       border-radius: 24px;
       padding: 8px 24px;
 
-      @media(max-width:${({ theme }) => theme.breakpoint.mobileMax}px){
+    @media(max-width:${({ theme }) => theme.breakpoint.mobileMax}px){
         border-radius: 29px;
         padding: 8px 12px;
-      }
+    }
   }
 
   @media(max-width:${({ theme }) => theme.breakpoint.mobileMax}px){
@@ -97,6 +120,8 @@ export const Camera = styled(CameraIcon)`
   }
 `;
 
-export const Input = styled.input`
-`
+
+
+
+
 
