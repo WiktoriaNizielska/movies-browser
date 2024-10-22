@@ -52,7 +52,7 @@ export const ButtonText = styled.p`
   }
 `;
 
-export const TextContainer = styled.p`
+export const TextContainer = styled.div`
   color: ${({ theme }) => theme.color.darkGrey};
   display: inline-flex;
   gap: 8px;
