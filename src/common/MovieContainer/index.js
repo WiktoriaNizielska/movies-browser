@@ -13,41 +13,42 @@ import {
 } from "./styled"
 
 export const MovieContainer = ({
-    movieTitle,
     movieYear,
     tag,
     movieDescription,
     movieProduction,
     movieRelease
-}) => (
-    <>
-        <MovieImage/>
-        <MovieContent>
-            <Header>
-                {movieTitle}
-            </Header>
-            <Subtitle>
-                {movieYear}
-            </Subtitle>
-            <Data>
-                <DateProduction>
-                    {movieProduction}
-                </DateProduction>
-                <DateRelease>
-                    {movieRelease}
-                </DateRelease>
-            </Data>
-            <Tags>
-                <Tag>{tag}</Tag>
-                <Tag>{tag}</Tag>
-                <Tag>{tag}</Tag>
-            </Tags>
-            <Rate>
-                <Star />
-            </Rate>
-            <Description>
-                {movieDescription}
-            </Description>
-        </MovieContent>
-    </>
-)
+}) => {
+
+    return (
+        <>
+            <MovieImage />
+            <MovieContent>
+                <Header>
+                </Header>
+                <Subtitle>
+                    {movieYear}
+                </Subtitle>
+                <Data>
+                    <DateProduction>
+                        {movieProduction}
+                    </DateProduction>
+                    <DateRelease>
+                        {movieRelease}
+                    </DateRelease>
+                </Data>
+                <Tags>
+                    <Tag>{tag}</Tag>
+                    <Tag>{tag}</Tag>
+                    <Tag>{tag}</Tag>
+                </Tags>
+                <Rate>
+                    <Star />
+                </Rate>
+                <Description>
+                    {movieDescription}
+                </Description>
+            </MovieContent>
+        </>
+    )
+}

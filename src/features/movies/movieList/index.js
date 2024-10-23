@@ -1,11 +1,27 @@
 import { useEffect, useState } from "react"
-import { Container, GenresContainer, GenreTag, Header, Image, MainPageContainer, MainPageMovie, Rate, RateContainer, Star, TextWrapper, Title, Votes, Wrapper, Year } from "./styled";
+import {
+  Container,
+  GenresContainer,
+  GenreTag,
+  Header,
+  Image,
+  MainPageContainer,
+  MainPageMovie,
+  Rate,
+  RateContainer,
+  Star,
+  TextWrapper,
+  Title,
+  Votes,
+  Wrapper,
+  Year
+} from "./styled";
 import { Pagination } from "../../../common/Pagination";
+import { Link } from "react-router-dom/cjs/react-router-dom";
 
-export const MovieList = () => {
+export const useFetchData = () => {
   const [movies, showMovies] = useState([])
   const [movieGenres, setMovieGenres] = useState([])
-
 
   const fetchData = async () => {
     try {
@@ -15,7 +31,6 @@ export const MovieList = () => {
       if (!response.ok) {
         throw new Error(response.statusText)
       }
-
       const responseGeneresJson = await responseGenres.json()
       const data = await response.json()
       const movieList = await data.results
@@ -33,6 +48,12 @@ export const MovieList = () => {
     fetchData()
   }, []);
 
+  return [movies, movieGenres]
+}
+
+export const MovieList = () => {
+  const [movies, movieGenres] = useFetchData()
+
   return (
     <Wrapper>
       <Header>Popular movies</Header>
@@ -46,11 +67,15 @@ export const MovieList = () => {
             />
             <TextWrapper>
               <Container>
-                <Title>{movie.original_title}</Title>
+                <Link style={{ textDecoration: 'none' }} to={`/movie/${movie.id}`}>
+                  <Title>
+                    {movie.original_title}
+                  </Title>
+                </Link>
                 <Year>{movie.release_date}</Year>
                 <GenresContainer>
                   {movie.genre_ids.map((id) =>
-                    <GenreTag>
+                    <GenreTag key={id}>
                       {movieGenres.find((genreId) =>
                         genreId.id === id).name}
                     </GenreTag>

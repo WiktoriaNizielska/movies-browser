@@ -1,4 +1,4 @@
-import { HashRouter, Redirect, Route, Switch } from "react-router-dom/cjs/react-router-dom";
+import { HashRouter, Redirect, Route, Switch, } from "react-router-dom/cjs/react-router-dom";
 import {
   Camera,
   Container,
@@ -13,6 +13,7 @@ import { MovieList } from "../features/movies/movieList/index";
 import { SearchInput } from "../common/Input";
 
 function App() {
+
   return (
     <HashRouter>
       <StyledNavigation>
@@ -35,11 +36,11 @@ function App() {
         </Container>
       </StyledNavigation>
       <Switch>
+        <Route path="/movie/:id">
+          <MovieContainer />
+        </Route>
         <Route path="/movies">
           <MovieList />
-        </Route>
-        <Route path="/movie">
-          <MovieContainer />
         </Route>
         <Route path="/people">
         </Route>

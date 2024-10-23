@@ -148,7 +148,7 @@ export const GenreTag = styled.li`
   }
 `;
 
-export const RateContainer = styled.p`
+export const RateContainer = styled.div`
   font-size: 16px;
   font-weight: 400;
   display: flex;
