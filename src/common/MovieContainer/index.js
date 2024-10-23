@@ -1,4 +1,3 @@
-import { useParams } from "react-router-dom/cjs/react-router-dom"
 import {
     Data,
     DateProduction,
@@ -13,10 +12,7 @@ import {
     Star
 } from "./styled"
 
-
-
 export const MovieContainer = ({
-    movieTitle,
     movieYear,
     tag,
     movieDescription,
@@ -24,16 +20,11 @@ export const MovieContainer = ({
     movieRelease
 }) => {
 
-    const params = useParams()
-
-    console.log(params)
-
     return (
         <>
             <MovieImage />
             <MovieContent>
                 <Header>
-                    {movieTitle}
                 </Header>
                 <Subtitle>
                     {movieYear}

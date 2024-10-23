@@ -1,5 +1,21 @@
 import { useEffect, useState } from "react"
-import { Container, GenresContainer, GenreTag, Header, Image, MainPageContainer, MainPageMovie, Rate, RateContainer, Star, TextWrapper, Title, Votes, Wrapper, Year } from "./styled";
+import {
+  Container,
+  GenresContainer,
+  GenreTag,
+  Header,
+  Image,
+  MainPageContainer,
+  MainPageMovie,
+  Rate,
+  RateContainer,
+  Star,
+  TextWrapper,
+  Title,
+  Votes,
+  Wrapper,
+  Year
+} from "./styled";
 import { Pagination } from "../../../common/Pagination";
 import { Link } from "react-router-dom/cjs/react-router-dom";
 
@@ -51,7 +67,7 @@ export const MovieList = () => {
             />
             <TextWrapper>
               <Container>
-                <Link to={`/movie/${movie.id}`}>
+                <Link style={{ textDecoration: 'none' }} to={`/movie/${movie.id}`}>
                   <Title>
                     {movie.original_title}
                   </Title>

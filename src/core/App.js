@@ -39,13 +39,13 @@ function App() {
         <Route path="/movie/:id">
           <MovieContainer />
         </Route>
-        <Route path="/movies/">
+        <Route path="/movies">
           <MovieList />
         </Route>
         <Route path="/people">
         </Route>
         <Route path="/">
-          <Redirect to="/movies/" />
+          <Redirect to="/movies" />
         </Route>
       </Switch>
     </HashRouter>
