@@ -6,7 +6,13 @@ const movieSlice = createSlice({
         movies: [],
         movieGenres: [],
     },
-    reducers: {}
+    reducers: {
+        addMovies: () => { }
+    }
 })
 
+export const selectMovies = state => state.movies.movies
 export default movieSlice.reducer
+export const { addMovies } = movieSlice.actions
+
+
