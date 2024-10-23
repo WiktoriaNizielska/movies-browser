@@ -13,7 +13,6 @@ import {
 } from "./styled"
 
 export const MovieContainer = ({
-    title,
     movieYear,
     tag,
     movieDescription,
