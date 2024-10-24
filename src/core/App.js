@@ -13,7 +13,6 @@ import { MovieList } from "../features/movies/movieList/index";
 import { SearchInput } from "../common/Input";
 
 function App() {
-
   return (
     <HashRouter>
       <StyledNavigation>

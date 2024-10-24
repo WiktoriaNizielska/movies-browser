@@ -24,8 +24,7 @@ export const MovieContainer = ({
         <>
             <MovieImage />
             <MovieContent>
-                <Header>
-                </Header>
+                <Header></Header>
                 <Subtitle>
                     {movieYear}
                 </Subtitle>
