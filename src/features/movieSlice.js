@@ -7,12 +7,19 @@ const movieSlice = createSlice({
         movieGenres: [],
     },
     reducers: {
-        addMovies: () => { }
+        startFetch: () => { },
+        fetchMovies: (state, { payload: moviesList }) => {
+            state.movies = moviesList
+        },
+        fetchGenres: (state, { payload: moviesGenres }) => {
+            state.movieGenres = moviesGenres
+        }
     }
-})
+});
 
 export const selectMovies = state => state.movies.movies
+export const selectMovieGenres = state => state.movies.movieGenres
+export const { fetchMovies, startFetch, fetchGenres } = movieSlice.actions
 export default movieSlice.reducer
-export const { addMovies } = movieSlice.actions
 
 

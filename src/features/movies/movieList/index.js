@@ -17,10 +17,19 @@ import {
 } from "./styled";
 import { Pagination } from "../../../common/Pagination";
 import { Link } from "react-router-dom/cjs/react-router-dom";
-import { useFetchData } from "../../fetchData";
+import { useDispatch, useSelector } from "react-redux";
+import { useEffect } from "react";
+import { startFetch, selectMovies, selectMovieGenres } from "../../movieSlice";
 
 export const MovieList = () => {
-  const [movies, movieGenres] = useFetchData()
+
+  const dispatch = useDispatch()
+  const movies = useSelector(selectMovies)
+  const movieGenres = useSelector(selectMovieGenres)
+
+  useEffect(() => {
+    dispatch(startFetch())
+  }, [dispatch])
 
   return (
     <Wrapper>

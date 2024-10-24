@@ -7,7 +7,6 @@ import { theme } from './core/theme';
 import { GlobalStyle } from './core/GlobalStyle';
 import store from './store'
 import { Provider } from 'react-redux';
-import { selectMovies } from './features/fetchData';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
