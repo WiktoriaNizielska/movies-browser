@@ -6,15 +6,11 @@ const peopleSlice = createSlice({
     people: []
   },
   reducers: {
-    fetchPeople: (state) => {
-      state.loading = true;
-    },
+    fetchPeople: () => { },
     fetchPeopleSuccess: (state, { payload: people }) => {
-      state.loading = false;
       state.people = people;
     },
     fetchPeopleError: (state) => {
-      state.loading = false;
       state.error = true;
     },
   },
