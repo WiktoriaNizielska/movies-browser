@@ -13,7 +13,7 @@ export const Wrapper = styled.div`
 export const Header = styled.header`
   font-size: 36px;
   font-weight: 600;
-  color: ${({ theme }) => theme.color.black};
+  color: ${({ theme }) => theme.color.woodSmoke};
   margin: 56px 0 24px;
   text-align: left;
 
