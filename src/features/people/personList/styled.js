@@ -56,7 +56,7 @@ export const Tile = styled(Link)`
   text-decoration: none;
 
   &:hover{
-    transform: translateY(-4%);
+    transform: translateY(-3%);
   }
 
   @media(max-width:${({ theme }) => theme.breakpoint.mobileMax}px){
