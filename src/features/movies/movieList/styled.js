@@ -26,7 +26,7 @@ export const Header = styled.header`
 export const MainPageContainer = styled.section`
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr;
-  gap: 10px;
+  gap: 24px;
   justify-content: center;
 
   @media(max-width:${({ theme }) => theme.breakpoint.laptopMax}px){
@@ -53,6 +53,11 @@ export const MainPageMovie = styled.div`
   align-self: start;
   gap: 16px;
   height: 100%;
+  transition: 0.5s;
+
+  &:hover{
+    transform: translateY(-3%);
+  }
 
   @media(max-width:${({ theme }) => theme.breakpoint.mobileS}px){
     grid-template-columns: auto 1fr;
