@@ -19,7 +19,7 @@ function App() {
       <StyledNavigation>
         <Container>
           <Wrapper>
-            <Title>
+            <Title to="/movies-browser#/movies">
               <Camera />
               Movies&nbsp;Browser
             </Title>
