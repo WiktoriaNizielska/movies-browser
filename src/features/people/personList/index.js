@@ -20,7 +20,9 @@ export const PersonList = () => {
           <Header>Popular people</Header>
           <PeopleConatiner>
             {people.map(person =>
-              <Tile key={person.id}>
+              <Tile
+                to={`/people/${person.id}`}
+                key={person.id}>
                 <Image
                   key={person.id}
                   src={`https://image.tmdb.org/t/p/w185${person.profile_path}`} alt="Profile"

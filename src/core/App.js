@@ -12,6 +12,7 @@ import { MovieContainer } from "../common/MovieContainer";
 import { MovieList } from "../features/movies/movieList/index";
 import { SearchInput } from "../common/Input";
 import { PersonList } from "../features/people/personList";
+import { PersonDetails } from "../features/people/personDetails";
 
 function App() {
   return (
@@ -41,6 +42,9 @@ function App() {
         </Route>
         <Route path="/movies">
           <MovieList />
+        </Route>
+        <Route path="/people/:id">
+          <PersonDetails />
         </Route>
         <Route path="/people">
           <PersonList />

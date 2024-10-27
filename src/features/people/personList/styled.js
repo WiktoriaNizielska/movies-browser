@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom/cjs/react-router-dom";
 import styled from "styled-components";
 
 export const Wrapper = styled.div`
@@ -46,11 +47,17 @@ export const PeopleConatiner = styled.section`
   }
 `;
 
-export const Tile = styled.div`
+export const Tile = styled(Link)`
   background-color: ${({ theme }) => theme.color.white};
   padding: 16px;
   box-shadow: ${({ theme }) => theme.shadow.tile};
   border-radius: 5px;
+  transition: 0.5s;
+  text-decoration: none;
+
+  &:hover{
+    transform: translateY(-4%);
+  }
 
   @media(max-width:${({ theme }) => theme.breakpoint.mobileMax}px){
     padding: 8px;
