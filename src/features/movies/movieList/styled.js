@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import { ReactComponent as StarIcon } from '../../../images/star.svg';
 
-export const Wrapper = styled.div`
+export const Wrapper = styled.main`
   max-width: 1368px;
   margin: auto;
 

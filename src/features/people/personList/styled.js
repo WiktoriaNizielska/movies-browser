@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom/cjs/react-router-dom";
 import styled from "styled-components";
 
-export const Wrapper = styled.div`
+export const Wrapper = styled.main`
   max-width: 1368px;
   margin: auto;
 
