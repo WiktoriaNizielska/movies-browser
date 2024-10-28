@@ -1,6 +1,6 @@
 import { call, put, takeEvery } from "redux-saga/effects";
 import { fetchMovies, fetchGenres, startFetch } from "./movieSlice"
-import { getMoviesGenres, getPopularMoviesList } from "./fetchData";
+import { getMoviesGenres, getPopularMoviesList } from "./fetchData"
 
 function* fetchMoviesData() {
     try {
