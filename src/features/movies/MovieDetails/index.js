@@ -3,8 +3,6 @@ import { MovieContainer } from "../../../common/MovieContainer";
 
 export const MovieDetails = () => {
   return (
-    <Container>
-      <MovieContainer />
-    </Container>
+    <></>
   );
 }
