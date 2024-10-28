@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import { ReactComponent as StarIcon } from '../../../images/star.svg';
 
-export const Wrapper = styled.div`
+export const Wrapper = styled.main`
   max-width: 1368px;
   margin: auto;
 
@@ -13,7 +13,7 @@ export const Wrapper = styled.div`
 export const Header = styled.header`
   font-size: 36px;
   font-weight: 600;
-  color: ${({ theme }) => theme.color.black};
+  color: ${({ theme }) => theme.color.woodSmoke};
   margin: 56px 0 24px;
   text-align: left;
 
@@ -26,7 +26,7 @@ export const Header = styled.header`
 export const MainPageContainer = styled.section`
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr;
-  gap: 10px;
+  gap: 24px;
   justify-content: center;
 
   @media(max-width:${({ theme }) => theme.breakpoint.laptopMax}px){
@@ -53,6 +53,11 @@ export const MainPageMovie = styled.div`
   align-self: start;
   gap: 16px;
   height: 100%;
+  transition: 0.5s;
+
+  &:hover{
+    transform: translateY(-3%);
+  }
 
   @media(max-width:${({ theme }) => theme.breakpoint.mobileS}px){
     grid-template-columns: auto 1fr;

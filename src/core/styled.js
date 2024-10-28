@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { NavLink } from "react-router-dom/cjs/react-router-dom";
+import { Link, NavLink } from "react-router-dom/cjs/react-router-dom";
 import { ReactComponent as CameraIcon } from '../images/camera.svg';
 
 export const StyledNavigation = styled.nav`
@@ -88,7 +88,7 @@ export const StyledNavLink = styled(NavLink)`
   }
 `;
 
-export const Title = styled.h1`
+export const Title = styled(Link)`
   color: ${({ theme }) => theme.color.white};
   display: flex;
   align-items: center;
@@ -99,6 +99,7 @@ export const Title = styled.h1`
   letter-spacing: -1.5px;
   flex-wrap: nowrap;
   margin: 23px 0px 23px 0px;
+  text-decoration: none;
 
   @media(max-width:${({ theme }) => theme.breakpoint.mobileMax}px){
     font-size: 13px;

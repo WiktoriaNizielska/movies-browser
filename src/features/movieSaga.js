@@ -16,6 +16,6 @@ function* fetchMoviesData() {
     }
 };
 
-export function* watchFetchMoviesData() {
+export function* movieSaga() {
     yield takeEvery(startFetch.type, fetchMoviesData)
 };

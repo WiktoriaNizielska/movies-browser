@@ -8,9 +8,11 @@ import {
   Title,
   Wrapper
 } from "./styled";
-import { MovieContainer } from "../common/MovieContainer";
 import { MovieList } from "../features/movies/movieList/index";
 import { SearchInput } from "../common/Input";
+import { PersonList } from "../features/people/personList";
+import { PersonDetails } from "../features/people/personDetails";
+import { MovieDetails } from "../features/movies/MovieDetails";
 
 function App() {
   return (
@@ -18,7 +20,7 @@ function App() {
       <StyledNavigation>
         <Container>
           <Wrapper>
-            <Title>
+            <Title to="/movies-browser#/movies">
               <Camera />
               Movies&nbsp;Browser
             </Title>
@@ -36,12 +38,16 @@ function App() {
       </StyledNavigation>
       <Switch>
         <Route path="/movie/:id">
-          <MovieContainer />
+          <MovieDetails />
         </Route>
         <Route path="/movies">
           <MovieList />
         </Route>
+        <Route path="/people/:id">
+          <PersonDetails />
+        </Route>
         <Route path="/people">
+          <PersonList />
         </Route>
         <Route path="/">
           <Redirect to="/movies" />
