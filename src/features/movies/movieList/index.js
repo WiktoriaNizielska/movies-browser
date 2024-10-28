@@ -31,6 +31,8 @@ export const MovieList = () => {
     dispatch(startFetch())
   }, [dispatch])
 
+  const formatYear = (date) => date.split("-")[0];
+
   return (
     <Wrapper>
       <Header>Popular movies</Header>
@@ -49,7 +51,7 @@ export const MovieList = () => {
                     {movie.original_title}
                   </Title>
                 </Link>
-                <Year>{movie.release_date}</Year>
+                <Year>{formatYear(movie.release_date)}</Year>
                 <GenresContainer>
                   {movie.genre_ids.map((id) =>
                     <GenreTag key={id}>
