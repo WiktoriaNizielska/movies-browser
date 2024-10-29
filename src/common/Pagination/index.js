@@ -3,12 +3,12 @@ import { Button, ButtonContainer, Wrapper, VectorPrevious, VectorNext, TextConta
 export const Pagination = () => (
   <Wrapper>
     <ButtonContainer>
-      <Button>
+      <Button disabled>
         <VectorPrevious />
         <SecondVectorPrevious />
         <ButtonText>First </ButtonText>
       </Button>
-      <Button>
+      <Button disabled>
         <VectorPrevious />
         <ButtonText>Previous</ButtonText>
       </Button>

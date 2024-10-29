@@ -41,4 +41,8 @@ export const Input = styled.input`
   &::placeholder {
     color: ${({ theme }) => theme.color.waterloo};
   }
+
+  @media(max-width:${({ theme }) => theme.breakpoint.mobileMax}px){
+      padding-left: 45px;
+  }
 `;

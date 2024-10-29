@@ -3,12 +3,9 @@ import { Input, Search, SearchContainer } from "./styled"
 
 export const SearchInput = () => {
     const location = useLocation();
-    let placeholder = ""
-
-    if (location.pathname === "/movies")
-        placeholder = "Search for movies..."
-    else
-        placeholder = "Search for people..."
+    const placeholder = location.pathname.startsWith("/movies")
+        ? "Search for movies..."
+        : "Search for people...";
 
     return (
         <SearchContainer>

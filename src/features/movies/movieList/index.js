@@ -39,18 +39,18 @@ export const MovieList = () => {
       <MainPageContainer>
         {movies.map(movie =>
           <MainPageMovie
-            key={movie.id}>
+            key={movie.id}
+            to={`/movies/${movie.id}`}
+          >
             <Image
               key={movie.id}
               src={`https://image.tmdb.org/t/p/w300_and_h450_bestv2/${movie.poster_path}`} alt="Poster"
             />
             <TextWrapper>
               <Container>
-                <Link style={{ textDecoration: 'none' }} to={`/movie/${movie.id}`}>
-                  <Title>
-                    {movie.original_title}
-                  </Title>
-                </Link>
+                <Title>
+                  {movie.original_title}
+                </Title>
                 <Year>{formatYear(movie.release_date)}</Year>
                 <GenresContainer>
                   {movie.genre_ids.map((id) =>
