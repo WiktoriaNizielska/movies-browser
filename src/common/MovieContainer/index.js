@@ -1,3 +1,4 @@
+import { Votes } from "../../features/movies/movieList/styled"
 import {
     Data,
     DateProduction,
@@ -17,14 +18,18 @@ export const MovieContainer = ({
     tag,
     movieDescription,
     movieProduction,
-    movieRelease
+    movieRelease,
+    title,
+    rate,
+    voteCount
 }) => {
-
     return (
         <>
             <MovieImage />
             <MovieContent>
-                <Header></Header>
+                <Header>
+                    {title}
+                </Header>
                 <Subtitle>
                     {movieYear}
                 </Subtitle>
@@ -43,6 +48,9 @@ export const MovieContainer = ({
                 </Tags>
                 <Rate>
                     <Star />
+                    {rate}{" "}
+                    {voteCount}{" "}
+                    votes
                 </Rate>
                 <Description>
                     {movieDescription}
