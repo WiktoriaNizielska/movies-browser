@@ -19,7 +19,8 @@ import { Pagination } from "../../../common/Pagination";
 import { Link } from "react-router-dom/cjs/react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect } from "react";
-import { startFetch, selectMovies, selectMovieGenres } from "../../movies/movieSlice";
+import { startFetch, selectMovies, selectMovieGenres, selectLoading } from "../../movies/movieSlice";
+import { Loading } from "../../../common/Loading";
 
 export const MovieList = () => {
 
@@ -32,10 +33,11 @@ export const MovieList = () => {
   }, [dispatch])
 
   const formatYear = (date) => date.split("-")[0];
+  const loading = useSelector(selectLoading)
 
   return (
     <Wrapper>
-      <Header>Popular movies</Header>
+      {loading ? <Loading/> : <><Header>Popular movies</Header>
       <MainPageContainer>
         {movies.map(movie =>
           <MainPageMovie
@@ -70,7 +72,7 @@ export const MovieList = () => {
           </MainPageMovie>
         )}
       </MainPageContainer>
-      <Pagination></Pagination>
+      <Pagination></Pagination></>}
     </Wrapper>
   );
 };
