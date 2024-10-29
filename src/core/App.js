@@ -37,7 +37,7 @@ function App() {
         </Container>
       </StyledNavigation>
       <Switch>
-        <Route path="/movie/:id">
+        <Route path="/movies/:id">
           <MovieDetails />
         </Route>
         <Route path="/movies">

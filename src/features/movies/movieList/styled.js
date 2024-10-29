@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import { ReactComponent as StarIcon } from '../../../images/star.svg';
+import { Link } from "react-router-dom/cjs/react-router-dom";
 
 export const Wrapper = styled.main`
   max-width: 1368px;
@@ -43,7 +44,7 @@ export const MainPageContainer = styled.section`
   }
 `;
 
-export const MainPageMovie = styled.div`
+export const MainPageMovie = styled(Link)`
   background-color: ${({ theme }) => theme.color.white};
   padding: 16px;
   box-shadow: ${({ theme }) => theme.shadow.tile};
@@ -54,6 +55,7 @@ export const MainPageMovie = styled.div`
   gap: 16px;
   height: 100%;
   transition: 0.5s;
+  text-decoration: none;
 
   &:hover{
     transform: translateY(-3%);
