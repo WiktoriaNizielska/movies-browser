@@ -2,7 +2,7 @@ import { Container, Header, Spinner } from "./styled";
 
 export const Loading = () => (
   <Container>
-    <Header></Header>
+    <Header>Loading</Header>
     <Spinner/>
   </Container>
 );
