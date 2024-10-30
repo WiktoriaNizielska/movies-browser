@@ -113,7 +113,6 @@ export const Title = styled(Link)`
 export const Camera = styled(CameraIcon)`
  width: 40px;
  height: 40px;
- color: ${({ theme }) => theme.color.white};
 
  @media(max-width:${({ theme }) => theme.breakpoint.mobileMax}px){
       width: 17px;
