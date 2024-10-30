@@ -1,4 +1,4 @@
-import { Description, Info, InfoContainer, Label, LineWrapper, Name, PersonImage, PersonTile, Text, Wrapper } from "./styled";
+import { Description, Info, InfoContainer, Label, LineWrapper, LongLabel, Name, PersonImage, PersonTile, ShortLabel, Text, Wrapper } from "./styled";
 import { usePersonDetails } from "./usePersonDetails";
 
 export const PersonDetails = () => {
@@ -12,7 +12,8 @@ export const PersonDetails = () => {
           <Name >{personDetails.name}</Name>
           <InfoContainer>
           <LineWrapper>
-            <Label>Date of birth: </Label>
+            <LongLabel>Date of birth: </LongLabel>
+            <ShortLabel>Birth:</ShortLabel>
             <Info>{personDetails.birthday || "Unavaliable information"}</Info>
           </LineWrapper>
           <LineWrapper>
@@ -20,8 +21,9 @@ export const PersonDetails = () => {
             <Info>{personDetails.place_of_birth || "Unavaliable information"}</Info>
           </LineWrapper>
           </InfoContainer>
+          </Text>
           <Description>{personDetails.biography || "Unavaliable information"}</Description>
-        </Text>
+        
       </PersonTile>
     </Wrapper>
   );
