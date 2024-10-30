@@ -16,7 +16,6 @@ import {
   Year
 } from "./styled";
 import { Pagination } from "../../../common/Pagination";
-import { Link } from "react-router-dom/cjs/react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect } from "react";
 import { startFetch, selectMovies, selectMovieGenres, selectLoading } from "../../movies/movieSlice";
