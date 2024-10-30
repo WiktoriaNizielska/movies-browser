@@ -10,6 +10,7 @@ export const getPopularMoviesList = async () => {
     }
     catch (error) {
         console.log(error)
+        throw new Error(error.message);
     }
 };
 
@@ -25,6 +26,7 @@ export const getMoviesGenres = async () => {
     }
     catch (error) {
         console.log(error)
+        throw new Error(error.message);
     }
 };
 
