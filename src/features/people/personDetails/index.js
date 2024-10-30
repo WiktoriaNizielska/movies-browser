@@ -6,7 +6,7 @@ import { usePersonDetails } from "./usePersonDetails";
 export const PersonDetails = () => {
   const { personDetails } = usePersonDetails();
   const { cast, crew } = useMovieCredits();
-  console.log(crew)
+  
   const formatYear = (date) => date.split("-")[0];
 
   return (
