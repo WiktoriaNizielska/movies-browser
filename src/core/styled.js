@@ -49,6 +49,9 @@ export const Wrapper = styled.div`
   @media(max-width:${({ theme }) => theme.breakpoint.mobileMax}px){
       gap: 20px;
   }
+  @media(max-width:${({ theme }) => theme.breakpoint.mobileS}px){
+      gap: 0px;
+  }
 `;
 
 export const NavLinkContainer = styled.div`
@@ -58,6 +61,9 @@ export const NavLinkContainer = styled.div`
   
   @media(max-width:${({ theme }) => theme.breakpoint.mobileMax}px){
         gap: 10px;
+  }
+  @media(max-width:${({ theme }) => theme.breakpoint.mobileS}px){
+      gap: 0px;
   }
 `;
 
@@ -111,12 +117,12 @@ export const Title = styled(Link)`
 `;
 
 export const Camera = styled(CameraIcon)`
- width: 40px;
- height: 40px;
+  width: 40px;
+  height: 40px;
 
  @media(max-width:${({ theme }) => theme.breakpoint.mobileMax}px){
-      width: 17px;
-      height: 17px;
+    width: 17px;
+    height: 17px;
   }
 `;
 
