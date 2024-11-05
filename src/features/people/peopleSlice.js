@@ -3,29 +3,30 @@ import { createSlice } from "@reduxjs/toolkit";
 const peopleSlice = createSlice({
   name: "people",
   initialState: {
-    people: []
+    people: [],
+    status: "initial",
   },
   reducers: {
-    fetchPeople: (state) => {
-      state.loading = true;
+    fetchPeopleStatus: (state) => {
+      state.status = "loading";
     },
     fetchPeopleSuccess: (state, { payload: people }) => {
-      state.loading = false;
+      state.status = "success";
       state.people = people;
     },
     fetchPeopleError: (state) => {
-      state.loading = false;
-      state.error = true;
+      state.status = "error";
     },
   },
 });
 
 export const {
-  fetchPeople,
+  fetchPeopleStatus,
   fetchPeopleSuccess,
   fetchPeopleError
 } = peopleSlice.actions;
 
-export const selectPeopleState = state => state.people;
-
+export const selectPeopleState = (state) => state.people;
+export const selectStatus = (state) => selectPeopleState(state).status;
+export const selectPeople = (state) => selectPeopleState(state).people;
 export default peopleSlice.reducer;

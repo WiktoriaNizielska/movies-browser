@@ -1,17 +1,17 @@
 import { call, delay, put, takeLatest } from "redux-saga/effects";
 import { getPeople } from "./getPeople";
-import { fetchPeople, fetchPeopleError, fetchPeopleSuccess } from "./peopleSlice";
+import {  fetchPeopleError, fetchPeopleStatus, fetchPeopleSuccess } from "./peopleSlice";
 
 function* fetchPeopleHandler() {
   try {
-    yield delay(1500);
+    yield delay(1000);
     const people = yield call(getPeople);
     yield put(fetchPeopleSuccess(people));
   } catch (error) {
-    yield put(fetchPeopleError(error));
+    yield put(fetchPeopleError());
   }
 }
 
 export function* peopleSaga() {
-  yield takeLatest(fetchPeople.type, fetchPeopleHandler)
+  yield takeLatest(fetchPeopleStatus.type, fetchPeopleHandler)
 }
