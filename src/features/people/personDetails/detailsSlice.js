@@ -30,7 +30,7 @@ const detailsSlice = createSlice({
 		setGenres: (state, { payload: genres }) => {
 			state.genres = genres;
 			state.status = "success";
-	},
+		},
 		setError: (state) => {
 			state.status = "error";
 		},
@@ -46,7 +46,7 @@ export const {
 	setError,
 } = detailsSlice.actions;
 
-export const selectPeopleState = (state) => state.people;
+export const selectPeopleState = (state) => state.details;
 export const selectPeopleId = (state) => selectPeopleState(state).id;
 export const selectPeopleDetails = (state) => selectPeopleState(state).details;
 export const selectPeopleCastMovies = (state) =>

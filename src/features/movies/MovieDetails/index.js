@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 import { Loading } from "../../../common/Loading";
 import { MovieContainer } from "../../../common/MovieContainer";
 import { useSelector } from "react-redux";
-import { selectLoading } from "../movieSlice";
+import { selectLoading, } from "../movieSlice";
 
 const useMovieDetails = () => {
   const [movieDetails, setMovieDetails] = useState([]);

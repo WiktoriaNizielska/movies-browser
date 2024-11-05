@@ -1,9 +1,7 @@
-
-
-export const getPeopleDetails = async () => {
+export const getPeopleDetails = async (id) => {
     try {
         const response = await fetch(
-            `https://api.themoviedb.org/3/person/1907997?api_key=46d96cb40fd666dc8da8fdc02b4c2019`
+            `https://api.themoviedb.org/3/person/${id}?api_key=46d96cb40fd666dc8da8fdc02b4c2019`
         );
 
         if (!response.ok) {

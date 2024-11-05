@@ -1,12 +1,11 @@
 import { useDispatch, useSelector } from "react-redux"
-import { Header, Image, Name, PeopleConatiner, Tile, Wrapper } from "./styled"
-import { fetchPeople, fetchPeopleStatus, selectPeople, selectPeopleState, selectStatus } from "../peopleSlice";
+import { Name, Wrapper } from "./styled"
+import { fetchPeopleStatus, selectPeople, selectStatus } from "../peopleSlice";
 import { useEffect } from "react";
-import { Pagination } from "../../../common/Pagination";
 import { Loading } from "../../../common/Loading"
 import { Error } from "../../../common/Error";
 import { toPeopleDetails } from "../routes";
-import { Link, useParams } from "react-router-dom/cjs/react-router-dom";
+import { Link, } from "react-router-dom/cjs/react-router-dom";
 
 export const PersonList = () => {
   const dispatch = useDispatch();

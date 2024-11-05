@@ -10,6 +10,7 @@ export const getPeopleCrewMovies = async (personId) => {
 
 		const data = await response.json();
 		return data.crew;
+
 	} catch (error) {
 		throw error;
 	}
