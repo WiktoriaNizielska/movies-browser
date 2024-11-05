@@ -4,7 +4,7 @@ import { fetchPeople, fetchPeopleError, fetchPeopleSuccess } from "./peopleSlice
 
 function* fetchPeopleHandler() {
   try {
-    yield delay(1500);
+    yield delay(1000);
     const people = yield call(getPeople);
     yield put(fetchPeopleSuccess(people));
   } catch (error) {
