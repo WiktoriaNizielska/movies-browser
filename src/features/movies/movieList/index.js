@@ -32,11 +32,12 @@ export const MovieList = () => {
   }, [dispatch])
 
   const formatYear = (date) => date.split("-")[0];
-  const { loading } = useSelector(selectMoviesState)
+  const { loading, error } = useSelector(selectMoviesState)
 
   return (
     <Wrapper>
       {loading ? <Loading /> :
+        error ? <Error /> :
           <><Header>Popular movies</Header>
             <MainPageContainer>
               {movies.map(movie =>
