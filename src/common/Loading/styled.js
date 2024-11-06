@@ -4,6 +4,11 @@ import { ReactComponent as SpinnerIcon } from '../../images/spinner.svg';
 export const Container = styled.div`
   text-align: center;
   margin: 56px auto;
+  max-width: 1368px;
+  
+  @media(max-width:${({ theme }) => theme.breakpoint.laptopMax}px){
+    margin: 0 16px;
+  }
 `;
 
 export const Header = styled.h1`
