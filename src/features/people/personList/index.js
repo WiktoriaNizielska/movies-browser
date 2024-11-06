@@ -3,8 +3,9 @@ import { Header, Image, Name, PeopleConatiner, Tile, Wrapper } from "./styled";
 import { useEffect } from "react";
 import { Loading } from "../../../common/Loading";
 import { Error } from "../../../common/Error";
-import { selectStatus, fetchPeopleStatus, selectPeople } from "../peopleSlice";
+import { selectStatus, fetchPeopleStatus, selectPeople } from "./peopleSlice";
 import { Pagination } from "../../../common/Pagination/index";
+import { NoPersonPoster } from "../../../common/NoPersonPoster/styled";
 
 export const PersonList = () => {
 	const dispatch = useDispatch();
@@ -29,10 +30,13 @@ export const PersonList = () => {
 							<Tile
 								to={`/people/${person.id}`}
 								key={person.id}>
-								<Image
-									key={person.id}
-									src={`https://image.tmdb.org/t/p/w185${person.profile_path}`} alt="Profile"
-								/>
+								{person.profile_path ?
+									<Image
+										key={person.id}
+										src={`https://image.tmdb.org/t/p/w185${person.profile_path}`} alt="Profile"
+									/>
+									: <NoPersonPoster />
+								}
 								<Name>{person.name}</Name>
 							</Tile>
 						)}
