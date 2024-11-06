@@ -167,7 +167,6 @@ export const Description = styled.p`
 export const Section = styled.section`
 `;
 
-
 export const Header = styled.header`
   font-size: 36px;
   font-weight: 600;
@@ -186,7 +185,6 @@ export const MainPageContainer = styled.section`
   grid-template-columns: repeat(auto-fill, minmax(324px, 1fr));
   gap: 24px;
   justify-content: center;
-  
 
   @media(max-width:${({ theme }) => theme.breakpoint.laptopMax}px){
     grid-template-columns: repeat(3, 1fr);
@@ -234,7 +232,6 @@ export const Image = styled.img`
   @media(max-width:${({ theme }) => theme.breakpoint.laptopMax}px){
     width: 100%;
   }
-
   
   @media (max-width: ${({ theme }) => theme.breakpoint.mobileS}px) {
     max-width: 114px;
