@@ -1,18 +1,24 @@
 import { useParams } from "react-router-dom/cjs/react-router-dom";
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import { Loading } from "../../../common/Loading";
 import { MovieContainer } from "../../../common/MovieContainer";
-import { useSelector } from "react-redux";
-import { selectMoviesState } from "../movieSlice";
+import { useDispatch, useSelector } from "react-redux";
+import { selectMovieGenre, selectMoviesDetails, selectMoviesState, setId } from "../movieSlice";
 import { Error } from "../../../common/Error";
 import { GenresContainer, GenreTag } from "../movieList/styled";
-import { useMovieDetails } from "../useMovieDetails";
-
-
 
 export const MovieDetails = () => {
-  const { movieDetails, movieGenres } = useMovieDetails([])
+
+  const { id } = useParams();
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(setId(id))
+  }, [dispatch, id])
+
   const { loading, error } = useSelector(selectMoviesState)
+  const movieGenres = useSelector(selectMovieGenre)
+  const movieDetails = useSelector(selectMoviesDetails)
 
   return (
     <>
