@@ -45,6 +45,10 @@ export const PeopleConatiner = styled.section`
   @media(max-width:${({ theme }) => theme.breakpoint.mobileMax}px){
     grid-template-columns: repeat(2, 1fr);
   }
+
+  @media(max-width:${({ theme }) => theme.breakpoint.mobileS}px){
+    grid-template-columns: 1fr;
+  }
 `;
 
 export const Tile = styled(Link)`
@@ -60,6 +64,10 @@ export const Tile = styled(Link)`
   }
 
   @media(max-width:${({ theme }) => theme.breakpoint.mobileMax}px){
+    padding: 14px;
+  }
+
+  @media(max-width:${({ theme }) => theme.breakpoint.mobileXS}px){
     padding: 8px;
   }
 `;
