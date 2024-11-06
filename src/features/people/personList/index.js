@@ -2,7 +2,6 @@ import { useDispatch, useSelector } from "react-redux";
 import { Header, Image, Name, PeopleConatiner, Tile, Wrapper } from "./styled";
 import { useEffect } from "react";
 import { Loading } from "../../../common/Loading";
-import { toPeopleDetails } from "./routes";
 import { Error } from "../../../common/Error";
 import { selectStatus, fetchPeopleStatus, selectPeople } from "../peopleSlice";
 import { Pagination } from "../../../common/Pagination/index";
