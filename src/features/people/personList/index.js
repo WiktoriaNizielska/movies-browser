@@ -3,7 +3,7 @@ import { Header, Image, Name, PeopleConatiner, Tile, Wrapper } from "./styled";
 import { useEffect } from "react";
 import { Loading } from "../../../common/Loading";
 import { Error } from "../../../common/Error";
-import { selectStatus, fetchPeopleStatus, selectPeople } from "../peopleSlice";
+import { selectStatus, fetchPeopleStatus, selectPeople } from "./peopleSlice";
 import { Pagination } from "../../../common/Pagination/index";
 import { NoPersonPoster } from "../../../common/NoPersonPoster/styled";
 
