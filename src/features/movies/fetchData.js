@@ -30,6 +30,39 @@ export const getMoviesGenres = async () => {
     }
 };
 
+export const getMoviesDetails = async (id) => {
+    try {
+        const response = await fetch(`https://api.themoviedb.org/3/movie/${id}?api_key=46d96cb40fd666dc8da8fdc02b4c2019`)
+
+        if (!response.ok) {
+            throw new Error(response.statusText)
+        }
+        const movieData = await response.json()
+        return movieData
+    }
+    catch (error) {
+        console.log(error)
+        throw new Error(error.message);
+    }
+};
+
+export const getMovieGenre = async (id) => {
+    try {
+        const response = await fetch(`https://api.themoviedb.org/3/movie/${id}?api_key=46d96cb40fd666dc8da8fdc02b4c2019`)
+
+        if (!response.ok) {
+            throw new Error(response.statusText)
+        }
+        const movieData = await response.json()
+        const genres = movieData.genres
+        return genres
+    }
+    catch (error) {
+        console.log(error)
+        throw new Error(error.message);
+    }
+};
+
 
 
 
