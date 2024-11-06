@@ -11,6 +11,10 @@ export const Container = styled.div`
   flex-direction: column;
   gap: 24px;
   align-items: center;
+
+  @media(max-width:${({ theme }) => theme.breakpoint.mobileS}px){
+    margin: 0 16px;
+  }
 `;
 
 export const Warning = styled.img`
