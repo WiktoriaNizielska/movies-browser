@@ -1,7 +1,6 @@
 import styled from "styled-components";
 import { ReactComponent as StarIcon } from '../../../images/star.svg';
 import { Link } from "react-router-dom/cjs/react-router-dom";
-import cameraIcon from '../../../images/camera.svg';
 
 export const Wrapper = styled.main`
   max-width: 1368px;
@@ -236,24 +235,6 @@ export const Image = styled.img`
   @media (max-width: ${({ theme }) => theme.breakpoint.mobileS}px) {
     max-width: 114px;
     flex-shrink: 0;
-  }
-`;
-
-export const NoMoviePoster = styled.div`
-  max-height: 750px;
-  max-width: 500px;
-  aspect-ratio: 2 / 3;
-  background-color: ${({ theme }) => theme.color.silver};
-  border-radius: 5px;
-  object-fit: cover;
-  text-align: center;
-  background-image: url(${cameraIcon});
-  background-repeat: no-repeat;
-  background-position: center;
-  background-size: 28%;
-
-  @media (max-width: ${({ theme }) => theme.breakpoint.mobileS}px) {
-    width: 114px;
   }
 `;
 
