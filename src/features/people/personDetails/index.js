@@ -1,5 +1,4 @@
 import { useParams } from "react-router-dom/cjs/react-router-dom";
-import { } from "../../movies/movieList/styled";
 import { Wrapper } from "./styled";
 import { useDispatch, useSelector } from "react-redux";
 import { selectPeopleCastMovies, selectPeopleCrewMovies, selectPeopleDetails, selectPeopleStatus, setPeopleId } from "./detailsSlice";

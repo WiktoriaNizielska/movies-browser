@@ -15,19 +15,19 @@ const detailsSlice = createSlice({
 			state.id = personId;
 			state.status = "loading";
 		},
-		setPeopleDetails: (state, { payload: details }) => {
+		fetchPeopleDetails: (state, { payload: details }) => {
 			state.details = details;
 			state.status = "success";
 		},
-		setPeopleCastMovies: (state, { payload: castMovies }) => {
+		fetchPeopleCastMovies: (state, { payload: castMovies }) => {
 			state.castMovies = castMovies;
 			state.status = "success";
 		},
-		setPeopleCrewMovies: (state, { payload: crewMovies }) => {
+		fetchPeopleCrewMovies: (state, { payload: crewMovies }) => {
 			state.crewMovies = crewMovies;
 			state.status = "success";
 		},
-		setGenres: (state, { payload: genres }) => {
+		fetchGenres: (state, { payload: genres }) => {
 			state.genres = genres;
 			state.status = "success";
 		},
@@ -39,10 +39,10 @@ const detailsSlice = createSlice({
 
 export const {
 	setPeopleId,
-	setPeopleDetails,
-	setPeopleCastMovies,
-	setPeopleCrewMovies,
-	setGenres,
+	fetchPeopleDetails,
+	fetchPeopleCastMovies,
+	fetchPeopleCrewMovies,
+	fetchGenres,
 	setError,
 } = detailsSlice.actions;
 

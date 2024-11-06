@@ -1,11 +1,11 @@
 import { useDispatch, useSelector } from "react-redux"
 import { Name, Wrapper } from "./styled"
-import { fetchPeopleStatus, selectPeople, selectStatus } from "../peopleSlice";
 import { useEffect } from "react";
 import { Loading } from "../../../common/Loading"
-import { Error } from "../../../common/Error";
-import { toPeopleDetails } from "../routes";
 import { Link, } from "react-router-dom/cjs/react-router-dom";
+import { toPeopleDetails } from "./routes";
+import { Error } from "../../../common/Error";
+import { selectStatus, fetchPeopleStatus, selectPeople } from "./peopleSlice";
 
 export const PersonList = () => {
   const dispatch = useDispatch();

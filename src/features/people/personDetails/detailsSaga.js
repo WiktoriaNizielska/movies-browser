@@ -1,5 +1,5 @@
 import { call, put, takeEvery, delay, select, all } from "redux-saga/effects";
-import { selectPeopleId, setError, setGenres, setPeopleCastMovies, setPeopleCrewMovies, setPeopleDetails, setPeopleId } from "./detailsSlice";
+import { selectPeopleId, setError, fetchGenres, fetchPeopleCastMovies, fetchPeopleCrewMovies, fetchPeopleDetails, setPeopleId } from "./detailsSlice";
 import { getPeopleDetails } from "./getPeopleDetails";
 import { getPeopleCastMovies } from "./getPeopleCastMovies";
 import { getPeopleCrewMovies } from "./getPeopleCrewMovies";
@@ -18,10 +18,10 @@ function* fetchDetailsHandler() {
 		]);
 
 		yield all([
-			put(setPeopleDetails(details)),
-			put(setPeopleCastMovies(castMovies)),
-			put(setPeopleCrewMovies(crewMovies)),
-			put(setGenres(genreList)),
+			put(fetchPeopleDetails(details)),
+			put(fetchPeopleCastMovies(castMovies)),
+			put(fetchPeopleCrewMovies(crewMovies)),
+			put(fetchGenres(genreList)),
 		]);
 	} catch (error) {
 		yield put(setError());
