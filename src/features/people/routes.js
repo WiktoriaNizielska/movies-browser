@@ -1,0 +1,1 @@
+export const toPeopleDetails = ({id} = {id: ":id"}) => `/people/${id}`;
