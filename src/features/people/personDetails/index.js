@@ -1,5 +1,5 @@
 import { useParams } from "react-router-dom/cjs/react-router-dom";
-import { Description, Info, InfoContainer, Label, LineWrapper, LongLabel, Name, PersonImage, PersonTile, ShortLabel, Text, Wrapper, Container, GenresContainer, Header, Image, MainPageContainer, MainPageMovie, Rate, RateContainer, Star, TextWrapper, Title, Votes, Year, Section } from "./styled";
+import { Description, Info, InfoContainer, Label, LineWrapper, LongLabel, Name, PersonImage, PersonTile, ShortLabel, Text, Wrapper, Container, GenresContainer, Header, Image, MainPageContainer, MainPageMovie, Rate, RateContainer, Star, TextWrapper, Title, Votes, Year, Section, GenreTag } from "./styled";
 import { useDispatch, useSelector } from "react-redux";
 import { selectGenres, selectPeopleCastMovies, selectPeopleCrewMovies, selectPeopleDetails, selectPeopleStatus, setPeopleId } from "./detailsSlice";
 import { Error } from "../../../common/Error";
@@ -20,6 +20,8 @@ export const PersonDetails = () => {
 	const person = useSelector(selectPeopleDetails);
 	const cast = useSelector(selectPeopleCastMovies);
 	const crew = useSelector(selectPeopleCrewMovies);
+	const genres = useSelector(selectGenres);
+	const genre = genres.genres;
 
 	const formatYear = (date) => date.split("-")[0];
 
@@ -77,6 +79,12 @@ export const PersonDetails = () => {
 											</Title>
 											{movie.release_date ? <Year>{movie.character} ({formatYear(movie.release_date)})</Year> : null}
 											<GenresContainer>
+												{movie.genre_ids.map((id) =>
+													<GenreTag key={id}>
+														{genre.find((genreId) =>
+															genreId.id === id).name}
+													</GenreTag>
+												)}
 											</GenresContainer>
 										</Container>
 										<RateContainer>
@@ -112,6 +120,12 @@ export const PersonDetails = () => {
 											</Title>
 											{movie.release_date ? <Year>{movie.job} ({formatYear(movie.release_date)})</Year> : null}
 											<GenresContainer>
+												{movie.genre_ids.map((id) =>
+													<GenreTag key={id}>
+														{genre.find((genreId) =>
+															genreId.id === id).name}
+													</GenreTag>
+												)}
 											</GenresContainer>
 										</Container>
 										<RateContainer>

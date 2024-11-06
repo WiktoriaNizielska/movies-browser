@@ -291,7 +291,7 @@ export const GenresContainer = styled.ul`
   gap: 8px;
   color: ${({ theme }) => theme.color.woodSmoke};
   flex-wrap: wrap;
-  margin: 0;
+  margin: 8px 0;
   padding: 0;
 `;
 
