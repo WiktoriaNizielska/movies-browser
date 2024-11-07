@@ -14,7 +14,7 @@ function* fetchMoviesData() {
     }
     catch (error) {
         yield put(fetchMoviesError(error))
-    }
+    };
 };
 
 function* moviesDetails() {
@@ -30,20 +30,20 @@ function* moviesDetails() {
     }
     catch (error) {
         yield put(fetchMoviesError(error))
-    }
+    };
 };
 
 function* getMovieName() {
     try {
         const movieName = yield select(selectMovieQuery)
         const selectMovieByName = yield call(getMovieByName, movieName)
-        // console.log(selectMovieByName)
+        console.log(selectMovieByName)
     }
-    catch {}
+    catch {};
 };
 
 export function* movieSaga() {
-    yield takeEvery(startFetch.type, fetchMoviesData)
-    yield takeEvery(setId.type, moviesDetails)
-    yield takeEvery(setMovieName.type, getMovieName)
+    yield takeEvery(startFetch.type, fetchMoviesData);
+    yield takeEvery(setId.type, moviesDetails);
+    yield takeEvery(setMovieName.type, getMovieName);
 };
