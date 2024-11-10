@@ -272,6 +272,10 @@ export const PersonContainer = styled.section`
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(208px, 1fr));
   gap: 24px;
+
+  @media (max-width: ${({ theme }) => theme.breakpoint.mobileS}px) {
+    grid-template-columns: 1fr 1fr;
+  }
 `;
 
 export const PersonTile = styled(Link)`
@@ -280,7 +284,7 @@ export const PersonTile = styled(Link)`
   box-shadow: ${({ theme }) => theme.shadow.tile};
   border-radius: 5px;
   display: grid;
-  grid-template-rows: auto 1fr 1fr;
+  grid-template-rows: auto auto 1fr;
   align-self: start;
   height: 100%;
   transition: 0.5s;
@@ -290,8 +294,8 @@ export const PersonTile = styled(Link)`
     transform: translateY(-3%);
   }
 
-  @media(max-width:${({ theme }) => theme.breakpoint.mobileS}px){
-    grid-template-columns: auto 1fr;
+  @media (max-width: ${({ theme }) => theme.breakpoint.mobileS}px) {
+    padding: 8px;
   }
 `;
 
@@ -301,15 +305,7 @@ export const Image = styled.img`
   aspect-ratio: 2 / 3;
   display: block;
   margin: auto;
-
-  @media(max-width:${({ theme }) => theme.breakpoint.laptopMax}px){
-    width: 100%;
-  }
-  
-  @media (max-width: ${({ theme }) => theme.breakpoint.mobileS}px) {
-    max-width: 114px;
-    flex-shrink: 0;
-  }
+  width: 100%;
 `;
 
 export const PersonName = styled.p`
@@ -317,6 +313,14 @@ export const PersonName = styled.p`
   font-weight: 500;
   color: ${({ theme }) => theme.color.woodSmoke};
   text-align: center;
+
+  @media (max-width: ${({ theme }) => theme.breakpoint.mobileS}px) {
+    font-size: 14px;
+  }
+
+  @media (max-width: ${({ theme }) => theme.breakpoint.mobileXS}px) {
+    font-size: 12px;
+  }
 `;
 
 export const Character = styled.p`
@@ -324,5 +328,14 @@ export const Character = styled.p`
   font-weight: 400;
   color: ${({ theme }) => theme.color.waterloo};
   text-align: center;
+  margin: 0;
+
+  @media (max-width: ${({ theme }) => theme.breakpoint.mobileS}px) {
+    font-size: 13px;
+  }
+  
+  @media (max-width: ${({ theme }) => theme.breakpoint.mobileXS}px) {
+    font-size: 11px;
+  }
 `;
 

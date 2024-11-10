@@ -2,12 +2,13 @@ import { useParams } from "react-router-dom/cjs/react-router-dom";
 import { useEffect } from "react";
 import { Loading } from "../../../common/Loading";
 import { useDispatch, useSelector } from "react-redux";
-import { selectMovieGenre, selectMoviesDetails, selectMoviesState, setId } from "../movieSlice";
+import { selectCast, selectCrew, selectMovieGenre, selectMoviesDetails, selectMoviesState, setId } from "../movieSlice";
 import { Error } from "../../../common/Error";
 import { MovieTitle, PosterContainer, RateMax, RateWrapper, Star, TitleConatiner, TitleRate, TitleVotes, Description, Info, InfoContainer, Label, LineWrapper, LongLabel, Name, PersonImage, PersonTile, ShortLabel, Text, Wrapper, Container, GenresContainer, Header, Image, MainPageContainer, MainPageMovie, Rate, RateContainer, TextWrapper, Title, Votes, Year, Section, GenreTag, MovieTile, MoviePoster, TileTitle, PersonContainer, PersonName, Character, SmallStar, BackdropWrapper, MaxRate } from "./styled";
 import { NoMoviePoster } from "../../../common/NoMoviePoster/styled";
 import { Backdrop } from "./Backdrop";
 import { formatCountries } from "../../formatFunctions";
+import { NoPersonPoster } from "../../../common/NoPersonPoster/styled";
 
 export const MovieDetails = () => {
 
@@ -21,11 +22,13 @@ export const MovieDetails = () => {
   const { loading, error } = useSelector(selectMoviesState)
   const movieGenres = useSelector(selectMovieGenre)
   const movieDetails = useSelector(selectMoviesDetails)
-
+  const casts = useSelector(selectCast)
+  const crews = useSelector(selectCrew)
+  console.log(crews)
 
   return (
     <>
-      { loading ? <Loading /> :
+      {loading ? <Loading /> :
         error ? <Error />
           :
           <>
@@ -69,24 +72,48 @@ export const MovieDetails = () => {
                 </Text>
                 <Description>{movieDetails.overview || "Unavaliable information"}</Description>
               </MovieTile>
-              {/* <Section>
+              <Section>
                 <Header>Cast</Header>
                 <PersonContainer>
-                  <PersonTile>
-                    <PersonName></PersonName>
-                    <Character></Character>
-                  </PersonTile>
+                  {casts.map(cast =>
+                    <PersonTile
+                      to={`/people/${cast.id}`}
+                      key={cast.id}
+                    >
+                      {cast.profile_path ?
+                        <Image
+                          src={`https://image.tmdb.org/t/p/w185${cast.profile_path}`}
+                          alt="Profile"
+                        />
+                        : <NoPersonPoster />
+                      }
+                      <PersonName>{cast.name}</PersonName>
+                      <Character>{cast.character}</Character>
+                    </PersonTile>
+                  )}
                 </PersonContainer>
               </Section>
               <Section>
                 <Header>Crew</Header>
                 <PersonContainer>
-                  <PersonTile>
-                    <PersonName></PersonName>
-                    <Character></Character>
-                  </PersonTile>
+                  {crews.map(crew =>
+                    <PersonTile
+                      to={`/people/${crew.id}`}
+                      key={crew.id}
+                    >
+                      {crew.profile_path ?
+                        <Image
+                          src={`https://image.tmdb.org/t/p/w185${crew.profile_path}`}
+                          alt="Profile"
+                        />
+                        : <NoPersonPoster />
+                      }
+                      <PersonName>{crew.name}</PersonName>
+                      <Character>{crew.job}</Character>
+                    </PersonTile>
+                  )}
                 </PersonContainer>
-              </Section> */}
+              </Section>
             </Wrapper>
           </>
       }
