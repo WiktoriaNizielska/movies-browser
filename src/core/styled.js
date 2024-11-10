@@ -3,7 +3,7 @@ import { Link, NavLink } from "react-router-dom/cjs/react-router-dom";
 import { ReactComponent as CameraIcon } from '../images/camera.svg';
 
 export const StyledNavigation = styled.nav`
-  background-color: ${({ theme }) => theme.color.woodSmoke};
+  background-color: ${({ theme }) => theme.color.black};
   margin: 0;
   list-style: none;
   padding: 0; 
