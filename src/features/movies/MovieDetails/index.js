@@ -24,7 +24,6 @@ export const MovieDetails = () => {
   const movieDetails = useSelector(selectMoviesDetails)
   const casts = useSelector(selectCast)
   const crews = useSelector(selectCrew)
-  console.log(crews)
 
   return (
     <>
