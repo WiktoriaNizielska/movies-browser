@@ -19,6 +19,10 @@ export const BackdropWrapper = styled.div`
   @media(max-width:${({ theme }) => theme.breakpoint.laptopMax}px){
     margin: auto 16px ;
   }
+
+  @media(max-width:${({ theme }) => theme.breakpoint.tabletVerticalMax}px){
+    box-shadow: inset 10px 0px 35px 35px rgba(0, 0, 0, 1);
+  }
 `;
 
 export const TitleConatiner = styled.div`
