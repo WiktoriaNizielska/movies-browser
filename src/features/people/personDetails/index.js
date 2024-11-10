@@ -62,7 +62,7 @@ export const PersonDetails = () => {
 							{cast.map(movie =>
 								<MainPageMovie
 									key={movie.id}
-									to="/movies-browser#/movies"
+									to={`/movies/${movie.id}`}
 								>
 									{movie.poster_path ?
 										(<Image
@@ -103,7 +103,7 @@ export const PersonDetails = () => {
 							{crew.map(movie =>
 								<MainPageMovie
 									key={movie.id}
-									to="/movies-browser#/movies"
+									to={`/movies/${movie.id}`}
 								>
 									{movie.poster_path ?
 										(<Image
