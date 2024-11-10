@@ -37,7 +37,12 @@ export const TitleConatiner = styled.div`
     grid-template-rows: auto 1fr;
     gap: 8px;
     align-items: center;
-    margin-bottom: 20px;
+    margin-bottom: 10px;
+    row-gap: 0;
+  }
+
+  @media(max-width:${({ theme }) => theme.breakpoint.mobileXS}px){
+    margin-bottom: 0;
   }
 `;
 
@@ -57,6 +62,10 @@ export const MovieTitle = styled.h1`
   
   @media(max-width:${({ theme }) => theme.breakpoint.mobileS}px){
     grid-column: span 2;
+  }
+
+  @media(max-width:${({ theme }) => theme.breakpoint.mobileXS}px){
+    font-size: 15px;
   }
 `;
 
@@ -81,6 +90,10 @@ export const Rate = styled.p`
   @media(max-width:${({ theme }) => theme.breakpoint.mobileS}px){
    font-size: 14px;
   }
+
+  @media(max-width:${({ theme }) => theme.breakpoint.mobileXS}px){
+    font-size: 12px;
+  }
 `;
 
 export const Star = styled(StarIcon)`
@@ -93,6 +106,11 @@ export const Star = styled(StarIcon)`
     height: 20px;
     align-self: center;
   }
+
+  @media(max-width:${({ theme }) => theme.breakpoint.mobileXS}px){
+    width: 15px;
+    height: 15px;
+  }
 `;
 
 export const RateMax = styled.p`
@@ -104,6 +122,10 @@ export const RateMax = styled.p`
    font-size: 10px;
    padding-bottom: 2px;
   }
+
+  @media(max-width:${({ theme }) => theme.breakpoint.mobileXS}px){
+    font-size: 8px;
+  }
 `;
 
 export const Votes = styled.p`
@@ -114,5 +136,9 @@ export const Votes = styled.p`
 
   @media(max-width:${({ theme }) => theme.breakpoint.mobileS}px){
    font-size: 10px;
+  }
+
+  @media(max-width:${({ theme }) => theme.breakpoint.mobileXS}px){
+    font-size: 8px;
   }
 `;
