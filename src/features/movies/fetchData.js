@@ -63,6 +63,40 @@ export const getMovieGenre = async (id) => {
     }
 };
 
+export const getCast = async (id) => {
+    try {
+        const response = await fetch(
+            `https://api.themoviedb.org/3/movie/${id}/credits?api_key=46d96cb40fd666dc8da8fdc02b4c2019`
+        );
+
+        if (!response.ok) {
+            throw new Error(response.statusText);
+        }
+
+        const data = await response.json();
+        return data.cast;
+    } catch (error) {
+        throw error;
+    }
+};
+
+export const getCrew = async (id) => {
+    try {
+        const response = await fetch(
+            `https://api.themoviedb.org/3/movie/${id}/credits?api_key=46d96cb40fd666dc8da8fdc02b4c2019`
+        );
+
+        if (!response.ok) {
+            throw new Error(response.statusText);
+        }
+
+        const data = await response.json();
+        return data.crew;
+
+    } catch (error) {
+        throw error;
+    }
+};
 export const getMovieByName = async (movieName) => {
     try {
         const response = await fetch(`https://api.themoviedb.org/3/search/keyword?query=${movieName}&api_key=46d96cb40fd666dc8da8fdc02b4c2019`)

@@ -3,7 +3,7 @@ import { Link, NavLink } from "react-router-dom/cjs/react-router-dom";
 import { ReactComponent as CameraIcon } from '../images/camera.svg';
 
 export const StyledNavigation = styled.nav`
-  background-color: ${({ theme }) => theme.color.woodSmoke};
+  background-color: ${({ theme }) => theme.color.black};
   margin: 0;
   list-style: none;
   padding: 0; 
@@ -49,8 +49,9 @@ export const Wrapper = styled.div`
   @media(max-width:${({ theme }) => theme.breakpoint.mobileMax}px){
       gap: 20px;
   }
+
   @media(max-width:${({ theme }) => theme.breakpoint.mobileS}px){
-      gap: 0px;
+      gap: 10px;
   }
 `;
 
@@ -60,7 +61,7 @@ export const NavLinkContainer = styled.div`
   gap: 16px;
   
   @media(max-width:${({ theme }) => theme.breakpoint.mobileMax}px){
-        gap: 10px;
+      gap: 10px;
   }
   @media(max-width:${({ theme }) => theme.breakpoint.mobileS}px){
       gap: 0px;
@@ -76,7 +77,16 @@ export const StyledNavLink = styled(NavLink)`
   font-weight: 600;
   line-height: 21px;
   gap: 16px;
+  
+  @media(max-width:${({ theme }) => theme.breakpoint.mobileMax}px){
+      font-size: 12px;
+      line-height: 18px;
+  }
 
+  @media(max-width:${({ theme }) => theme.breakpoint.mobileXS}px){
+    font-size: 9px;
+  }
+  
   &.active{
       border: 1px solid ${({ theme }) => theme.color.white};
       border-radius: 24px;
@@ -86,12 +96,15 @@ export const StyledNavLink = styled(NavLink)`
         border-radius: 29px;
         padding: 8px 12px;
     }
+    
+    @media(max-width:${({ theme }) => theme.breakpoint.mobileXS}px){
+        padding: 3px 8px;
+    }
   }
 
-  @media(max-width:${({ theme }) => theme.breakpoint.mobileMax}px){
-      font-size: 12px;
-      line-height: 18px;
-  }
+  
+
+  
 `;
 
 export const Title = styled(Link)`
@@ -114,6 +127,11 @@ export const Title = styled(Link)`
     gap: 8px;
     margin: 32px 0px 33px 0px;
   }
+
+  @media(max-width:${({ theme }) => theme.breakpoint.mobileXS}px){
+    font-size: 10px;
+    gap: 5px;
+  }
 `;
 
 export const Camera = styled(CameraIcon)`
@@ -123,6 +141,11 @@ export const Camera = styled(CameraIcon)`
  @media(max-width:${({ theme }) => theme.breakpoint.mobileMax}px){
     width: 17px;
     height: 17px;
+  }
+
+  @media(max-width:${({ theme }) => theme.breakpoint.mobileXS}px){
+    width: 13px;
+    height: 13px;
   }
 `;
 
