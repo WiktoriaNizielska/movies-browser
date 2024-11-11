@@ -1,6 +1,6 @@
 import { call, delay, put, select, takeEvery } from "redux-saga/effects";
-import { fetchMovies, fetchGenres, startFetch, fetchMoviesSucces, fetchMoviesError, selectMovieId, fetchMovieDetails, setId, fetchMovieGengre, fetchCast, fetchCrew } from "./movieSlice"
-import { getCast, getCrew, getMovieGenre, getMoviesDetails, getMoviesGenres, getPopularMoviesList } from "./fetchData"
+import { fetchMovies, fetchGenres, startFetch, fetchMoviesSucces, fetchMoviesError, selectMovieId, fetchMovieDetails, setId, fetchMovieGengre, setMovieName, selectMovieQuery, fetchCast, fetchCrew } from "./movieSlice"
+import { getMovieByName, getCast, getCrew, getMovieGenre, getMoviesDetails, getMoviesGenres, getPopularMoviesList } from "./fetchData"
 
 function* fetchMoviesData() {
     try {
@@ -14,7 +14,7 @@ function* fetchMoviesData() {
     }
     catch (error) {
         yield put(fetchMoviesError(error))
-    }
+    };
 };
 
 function* moviesDetails() {
@@ -29,15 +29,25 @@ function* moviesDetails() {
         yield put(fetchMoviesSucces())
         yield put(fetchMovieDetails(movieDetails))
         yield put(fetchMovieGengre(movieGenre))
-        yield put (fetchCast(cast))
-        yield put (fetchCrew(crew))
+        yield put(fetchCast(cast))
+        yield put(fetchCrew(crew))
     }
     catch (error) {
         yield put(fetchMoviesError(error))
+    };
+};
+
+function* getMovieName() {
+    try {
+        const movieName = yield select(selectMovieQuery)
+        const selectMovieByName = yield call(getMovieByName, movieName)
+        console.log(selectMovieByName)
     }
+    catch { };
 };
 
 export function* movieSaga() {
-    yield takeEvery(startFetch.type, fetchMoviesData)
-    yield takeEvery(setId.type, moviesDetails)
+    yield takeEvery(startFetch.type, fetchMoviesData);
+    yield takeEvery(setId.type, moviesDetails);
+    yield takeEvery(setMovieName.type, getMovieName);
 };
