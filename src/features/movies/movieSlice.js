@@ -4,6 +4,7 @@ const movieSlice = createSlice({
     name: "movies",
     initialState: {
         movies: [],
+        movieName: "",
         movieDetails: [],
         movieGenres: [],
         movieGenre: [],
@@ -16,6 +17,10 @@ const movieSlice = createSlice({
         setId: (state, { payload: id }) => {
             state.id = id
             state.loading = true
+        },
+
+        setMovieName: (state, { payload: query }) => {
+            state.movieName = query
         },
         fetchMovies: (state, { payload: moviesList }) => {
             state.movies = moviesList
@@ -50,6 +55,8 @@ export const selectLoading = state => state.movies.loading
 export const selectMovieGenres = state => state.movies.movieGenres
 export const selectMovieGenre = state => selectMoviesState(state).movieGenre
 
+export const selectMovieQuery = state => selectMoviesState(state).movieName
+
 export const {
     fetchMovies,
     startFetch,
@@ -58,7 +65,8 @@ export const {
     fetchMoviesSucces,
     fetchMoviesError,
     setId,
-    fetchMovieGengre
+    fetchMovieGengre,
+    setMovieName
 } = movieSlice.actions
 export default movieSlice.reducer
 
