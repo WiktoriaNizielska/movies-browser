@@ -21,6 +21,7 @@ import { useEffect } from "react";
 import { startFetch, selectMovies, selectMovieGenres, selectMoviesState } from "../../movies/movieSlice";
 import { Loading } from "../../../common/Loading";
 import { Error } from "../../../common/Error"
+import { formatRate, formatYear } from "../../formatFunctions";
 
 export const MovieList = () => {
   const dispatch = useDispatch()
@@ -31,7 +32,6 @@ export const MovieList = () => {
     dispatch(startFetch())
   }, [dispatch])
 
-  const formatYear = (date) => date.split("-")[0];
   const { loading, error } = useSelector(selectMoviesState)
 
   return (
@@ -66,7 +66,7 @@ export const MovieList = () => {
                     </Container>
                     <RateContainer>
                       <Star />
-                      <Rate>{movie.vote_average.toFixed(1)}</Rate>
+                      <Rate>{formatRate(movie.vote_average)}</Rate>
                       <Votes>{movie.vote_count} votes</Votes>
                     </RateContainer>
                   </TextWrapper>

@@ -4,11 +4,12 @@ import { Loading } from "../../../common/Loading";
 import { useDispatch, useSelector } from "react-redux";
 import { selectCast, selectCrew, selectMovieGenre, selectMoviesDetails, selectMoviesState, setId } from "../movieSlice";
 import { Error } from "../../../common/Error";
-import { MovieTitle, PosterContainer, RateMax, RateWrapper, Star, TitleConatiner, TitleRate, TitleVotes, Description, Info, InfoContainer, Label, LineWrapper, LongLabel, Name, PersonImage, PersonTile, ShortLabel, Text, Wrapper, Container, GenresContainer, Header, Image, MainPageContainer, MainPageMovie, Rate, RateContainer, TextWrapper, Title, Votes, Year, Section, GenreTag, MovieTile, MoviePoster, TileTitle, PersonContainer, PersonName, Character, SmallStar, BackdropWrapper, MaxRate } from "./styled";
+import { Description, Info, InfoContainer, Label, LineWrapper, PersonTile, Text, Wrapper, GenresContainer, Header, Image, Rate, RateContainer, Votes, Year, Section, GenreTag, MovieTile, MoviePoster, TileTitle, PersonContainer, PersonName, Character, SmallStar, MaxRate, LongInfo, ShortInfo } from "./styled";
 import { NoMoviePoster } from "../../../common/NoMoviePoster/styled";
 import { Backdrop } from "./Backdrop";
-import { formatCountries } from "../../formatFunctions";
+import { formatCountries, formatDate, formatRate, formatShortCountries } from "../../formatFunctions";
 import { NoPersonPoster } from "../../../common/NoPersonPoster/styled";
+import { formatYear } from "../../formatFunctions";
 
 export const MovieDetails = () => {
 
@@ -19,12 +20,12 @@ export const MovieDetails = () => {
     dispatch(setId(id))
   }, [dispatch, id])
 
-  const { loading, error } = useSelector(selectMoviesState)
-  const movieGenres = useSelector(selectMovieGenre)
-  const movieDetails = useSelector(selectMoviesDetails)
-  const casts = useSelector(selectCast)
-  const crews = useSelector(selectCrew)
-
+  const { loading, error } = useSelector(selectMoviesState);
+  const movieGenres = useSelector(selectMovieGenre);
+  const movieDetails = useSelector(selectMoviesDetails);
+  const casts = useSelector(selectCast);
+  const crews = useSelector(selectCrew);
+  
   return (
     <>
       {loading ? <Loading /> :
@@ -34,8 +35,8 @@ export const MovieDetails = () => {
             <Backdrop
               backgroundURL={`https://image.tmdb.org/t/p/original${movieDetails.backdrop_path}`}
               title={movieDetails.title}
-              votes={movieDetails.vote_count}
               rate={movieDetails.vote_average}
+              votes={movieDetails.vote_count}
             />
             <Wrapper>
               <MovieTile>
@@ -47,15 +48,27 @@ export const MovieDetails = () => {
                 }
                 <Text>
                   <TileTitle >{movieDetails.title}</TileTitle>
-                  <Year>{(movieDetails.release_date)}</Year>
+                  {movieDetails.release_date ?
+                    <Year>{formatYear(movieDetails.release_date)}</Year>
+                    : null
+                  }
                   <InfoContainer>
                     <LineWrapper>
                       <Label>Production: </Label>
-                      {/* <Info>{formatCountries(movieDetails.production_countries)}</Info> */}
+                      {movieDetails.production_countries ?
+                        <>
+                          <LongInfo>{formatCountries(movieDetails.production_countries)}</LongInfo>
+                          <ShortInfo>{formatShortCountries(movieDetails.production_countries)}</ShortInfo>
+                        </>
+                        : "Unavaliable information"
+                      }
                     </LineWrapper>
                     <LineWrapper>
                       <Label>Release date:  </Label>
-                      <Info>{movieDetails.release_date}</Info>
+                      {movieDetails.release_date ?
+                        <Info>{formatDate(movieDetails.release_date)}</Info>
+                        : "Unavaliable information"
+                      }
                     </LineWrapper>
                   </InfoContainer>
                   <GenresContainer>
@@ -66,7 +79,13 @@ export const MovieDetails = () => {
                     )}
                   </GenresContainer>
                   <RateContainer>
-                    <SmallStar /><Rate> {movieDetails.vote_average}</Rate><MaxRate>/ 10</MaxRate><Votes>{movieDetails.vote_count} votes</Votes>
+                    <SmallStar />
+                    {movieDetails.vote_average ?
+                      <Rate> {formatRate(movieDetails.vote_average)}</Rate>
+                      : null
+                    }
+                    <MaxRate>/ 10</MaxRate>
+                    <Votes>{movieDetails.vote_count} votes</Votes>
                   </RateContainer>
                 </Text>
                 <Description>{movieDetails.overview || "Unavaliable information"}</Description>
