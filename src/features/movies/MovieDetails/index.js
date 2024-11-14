@@ -4,10 +4,10 @@ import { Loading } from "../../../common/Loading";
 import { useDispatch, useSelector } from "react-redux";
 import { selectCast, selectCrew, selectMovieGenre, selectMoviesDetails, selectMoviesState, setId } from "../movieSlice";
 import { Error } from "../../../common/Error";
-import { Description, Info, InfoContainer, Label, LineWrapper, PersonTile, Text, Wrapper, GenresContainer, Header, Image, Rate, RateContainer, Votes, Year, Section, GenreTag, MovieTile, MoviePoster, TileTitle, PersonContainer, PersonName, Character, SmallStar, MaxRate } from "./styled";
+import { Description, Info, InfoContainer, Label, LineWrapper, PersonTile, Text, Wrapper, GenresContainer, Header, Image, Rate, RateContainer, Votes, Year, Section, GenreTag, MovieTile, MoviePoster, TileTitle, PersonContainer, PersonName, Character, SmallStar, MaxRate, LongInfo, ShortInfo } from "./styled";
 import { NoMoviePoster } from "../../../common/NoMoviePoster/styled";
 import { Backdrop } from "./Backdrop";
-import { formatCountries, formatDate, formatRate } from "../../formatFunctions";
+import { formatCountries, formatDate, formatRate, formatShortCountries } from "../../formatFunctions";
 import { NoPersonPoster } from "../../../common/NoPersonPoster/styled";
 import { formatYear } from "../../formatFunctions";
 
@@ -25,7 +25,7 @@ export const MovieDetails = () => {
   const movieDetails = useSelector(selectMoviesDetails);
   const casts = useSelector(selectCast);
   const crews = useSelector(selectCrew);
-
+  
   return (
     <>
       {loading ? <Loading /> :
@@ -56,7 +56,10 @@ export const MovieDetails = () => {
                     <LineWrapper>
                       <Label>Production: </Label>
                       {movieDetails.production_countries ?
-                        <Info>{formatCountries(movieDetails.production_countries)}</Info>
+                        <>
+                          <LongInfo>{formatCountries(movieDetails.production_countries)}</LongInfo>
+                          <ShortInfo>{formatShortCountries(movieDetails.production_countries)}</ShortInfo>
+                        </>
                         : "Unavaliable information"
                       }
                     </LineWrapper>

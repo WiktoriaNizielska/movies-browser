@@ -145,6 +145,20 @@ export const Info = styled.p`
   }
 `;
 
+export const LongInfo = styled(Info)`
+
+  @media(max-width:${({ theme }) => theme.breakpoint.mobileS}px){
+    display: none;
+  }
+`;
+
+export const ShortInfo = styled(Info)`
+
+  @media(min-width:${({ theme }) => theme.breakpoint.mobileS}px){
+    display: none;
+  }
+`;
+
 export const GenresContainer = styled.ul`
   font-size: 14px;
   font-weight: 400;
