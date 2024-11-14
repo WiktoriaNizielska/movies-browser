@@ -18,11 +18,12 @@ import {
 import { Pagination } from "../../../common/Pagination";
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect } from "react";
-import { startFetch, selectMovies, selectMovieGenres, selectMoviesState, selectMovieQuery, selectSearchedMovies } from "../../movies/movieSlice";
+import { startFetch, selectMovies, selectMovieGenres, selectMoviesState } from "../../movies/movieSlice";
 import { Loading } from "../../../common/Loading";
 import { Error } from "../../../common/Error"
-import { SearchingContainer } from "../../../common/SearchingContainer";
+import { SearchingMovieContainer } from "../../../common/SearchingMovieContainer";
 import { formatRate, formatYear } from "../../formatFunctions";
+import { selectMovieQuery } from "../../../common/SearchingMovieContainer/searchingSlice";
 
 export const MovieList = () => {
   const dispatch = useDispatch()
@@ -80,7 +81,7 @@ export const MovieList = () => {
               <Pagination></Pagination>
             </>
             :
-            <SearchingContainer />
+            <SearchingMovieContainer />
       }
     </Wrapper>
   );

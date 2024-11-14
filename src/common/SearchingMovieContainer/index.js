@@ -1,5 +1,5 @@
 import { useSelector } from "react-redux";
-import { selectMovieGenres, selectMovieQuery, selectMoviesState, selectSearchedMovies } from "../../features/movies/movieSlice";
+import { selectMovieGenres,} from "../../features/movies/movieSlice";
 import {
   Container,
   GenresContainer,
@@ -17,14 +17,12 @@ import {
   Wrapper,
   Year
 } from "./styled";
-import { Loading } from "../Loading";
-import { Error } from "../Error";
+import { selectMovieQuery, selectSearchedMovies, } from "./searchingSlice";
 
-export const SearchingContainer = () => {
+export const SearchingMovieContainer = () => {
   const searchedMovies = useSelector(selectSearchedMovies);
-  const movieGenres = useSelector(selectMovieGenres);
   const query = useSelector(selectMovieQuery);
-  const { loading, error } = useSelector(selectMoviesState);
+  const movieGenres = useSelector(selectMovieGenres);
   const formatYear = (date) => date.split("-")[0];
 
   return (
@@ -35,7 +33,7 @@ export const SearchingContainer = () => {
           {searchedMovies.map(movie =>
             <MainPageMovie
               key={movie.id}
-            // to={`/movies/${movie.id}`}
+              to={`/movies/${movie.id}`}
             >
               <Image
                 key={movie.id}
@@ -67,6 +65,6 @@ export const SearchingContainer = () => {
         </MainPageContainer>
       </>
     </Wrapper>
-  )
+  );
 };
 

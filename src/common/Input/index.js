@@ -2,7 +2,9 @@ import { useHistory, useLocation } from "react-router-dom/cjs/react-router-dom";
 import { Input, Search, SearchContainer } from "./styled";
 import { useEffect } from "react";
 import { useDispatch } from "react-redux";
-import { setMovieName } from "../../features/movies/movieSlice";
+import { setMovieName } from "../SearchingMovieContainer/searchingSlice";
+
+
 
 export const SearchInput = () => {
     const dispatch = useDispatch();
@@ -10,6 +12,7 @@ export const SearchInput = () => {
     const history = useHistory();
     const searchParams = new URLSearchParams(location.search);
     const query = searchParams.get("szukaj");
+
 
     useEffect(() => {
         dispatch(setMovieName(query))
