@@ -4,6 +4,8 @@ import createSagaMiddleware from "redux-saga";
 import saga from "./saga";
 import peopleSlice from "../features/people/personList/peopleSlice";
 import detailsSlice from "../features/people/personDetails/detailsSlice";
+import paginationSlice from "../common/Pagination/paginationSlice";
+import navBarReducer from "../common/Pagination/barSlice";
 
 const sagaMiddleware = createSagaMiddleware()
 
@@ -12,6 +14,8 @@ export default configureStore({
         movies: movieSlice,
         people: peopleSlice,
         details: detailsSlice,
+        pagination: paginationSlice,
+        navBar: navBarReducer,
 
     },
     middleware: (getDefaultMiddleware) =>
