@@ -10,6 +10,9 @@ import { Backdrop } from "./Backdrop";
 import { formatCountries, formatDate, formatRate, formatShortCountries } from "../../formatFunctions";
 import { NoPersonPoster } from "../../../common/NoPersonPoster/styled";
 import { formatYear } from "../../formatFunctions";
+import { selectMovieQuery } from "../../../common/SearchingMovieContainer/searchingSlice";
+import { SearchContainer } from "../../../common/Input/styled";
+import { SearchingMovieContainer } from "../../../common/SearchingMovieContainer";
 
 export const MovieDetails = () => {
 
@@ -25,12 +28,13 @@ export const MovieDetails = () => {
   const movieDetails = useSelector(selectMoviesDetails);
   const casts = useSelector(selectCast);
   const crews = useSelector(selectCrew);
+  const movieQuery = useSelector(selectMovieQuery)
   
   return (
     <>
       {loading ? <Loading /> :
-        error ? <Error />
-          :
+        error ? <Error /> :
+        movieQuery === null ?
           <>
             <Backdrop
               backgroundURL={`https://image.tmdb.org/t/p/original${movieDetails.backdrop_path}`}
@@ -133,7 +137,8 @@ export const MovieDetails = () => {
                 </PersonContainer>
               </Section>
             </Wrapper>
-          </>
+          </> 
+          : <SearchingMovieContainer/>
       }
     </>
   );
