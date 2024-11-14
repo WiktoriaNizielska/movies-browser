@@ -283,9 +283,6 @@ export const PersonTile = styled(Link)`
   padding: 16px;
   box-shadow: ${({ theme }) => theme.shadow.tile};
   border-radius: 5px;
-  display: grid;
-  grid-template-rows: auto auto 1fr;
-  align-self: start;
   height: 100%;
   transition: 0.5s;
   text-decoration: none;
@@ -313,6 +310,8 @@ export const PersonName = styled.p`
   font-weight: 500;
   color: ${({ theme }) => theme.color.woodSmoke};
   text-align: center;
+  margin-bottom: 8px;
+  margin-top: 12px;
 
   @media (max-width: ${({ theme }) => theme.breakpoint.mobileS}px) {
     font-size: 14px;
