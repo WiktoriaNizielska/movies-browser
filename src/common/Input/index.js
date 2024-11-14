@@ -21,6 +21,7 @@ export const SearchInput = () => {
         }
         else {
             searchParams.set("szukaj", target.value)
+
         }
         history.push(`${location.pathname}?${searchParams.toString()}`)
     };

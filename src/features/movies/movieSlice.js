@@ -11,6 +11,7 @@ const movieSlice = createSlice({
         id: "",
         cast: [],
         crew: [],
+        searchedMovies: [],
     },
     reducers: {
         startFetch: (state) => {
@@ -52,6 +53,10 @@ const movieSlice = createSlice({
         fetchCrew: (state, { payload: crew }) => {
             state.crew = crew;
         },
+
+        setSearchedMovies: (state, {payload: searchedMovies}) => {
+            state.searchedMovies = searchedMovies
+        } 
     }
 });
 
@@ -67,6 +72,8 @@ export const selectCrew = state => selectMoviesState(state).crew
 
 export const selectMovieQuery = state => selectMoviesState(state).movieName
 
+export const selectSearchedMovies = state => selectMoviesState(state).searchedMovies
+
 export const {
     fetchMovies,
     startFetch,
@@ -78,7 +85,8 @@ export const {
     fetchMovieGengre,
     fetchCast,
     fetchCrew,
-    setMovieName
+    setMovieName,
+    setSearchedMovies
 } = movieSlice.actions
 export default movieSlice.reducer
 
