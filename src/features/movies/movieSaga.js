@@ -1,5 +1,5 @@
 import { call, delay, put, select, takeEvery } from "redux-saga/effects";
-import { fetchMovies, fetchGenres, startFetch, fetchMoviesSucces, fetchMoviesError, selectMovieId, fetchMovieDetails, setId, fetchMovieGengre, setMovieName, selectMovieQuery, fetchCast, fetchCrew } from "./movieSlice"
+import { fetchMovies, fetchGenres, startFetch, fetchMoviesSucces, fetchMoviesError, selectMovieId, fetchMovieDetails, setId, fetchMovieGengre, setMovieName, selectMovieQuery, fetchCast, fetchCrew, setSearchedMovies } from "./movieSlice"
 import { getMovieByName, getCast, getCrew, getMovieGenre, getMoviesDetails, getMoviesGenres, getPopularMoviesList } from "./fetchData"
 
 function* fetchMoviesData() {
@@ -41,7 +41,7 @@ function* getMovieName() {
     try {
         const movieName = yield select(selectMovieQuery)
         const selectMovieByName = yield call(getMovieByName, movieName)
-        console.log(selectMovieByName)
+        yield put(setSearchedMovies(selectMovieByName))
     }
     catch { };
 };

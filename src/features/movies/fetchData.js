@@ -99,17 +99,20 @@ export const getCrew = async (id) => {
 };
 export const getMovieByName = async (movieName) => {
     try {
-        const response = await fetch(`https://api.themoviedb.org/3/search/keyword?query=${movieName}&api_key=46d96cb40fd666dc8da8fdc02b4c2019`)
+        const response = await fetch(`https://api.themoviedb.org/3/search/movie?api_key=46d96cb40fd666dc8da8fdc02b4c2019&query=${movieName}&language=en-US`)
         if (!response.ok) {
             throw new Error(response.statusText)
         }
         const movie = await response.json()
-        return movie
+
+        return movie.results
     }
     catch (error) {
-
+        
     }
 }
+
+
 
 
 
