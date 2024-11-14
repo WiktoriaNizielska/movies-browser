@@ -16,7 +16,7 @@ export const PersonDetails = () => {
 
 	useEffect(() => {
 		dispatch(setPeopleId(id))
-	}, [id]);
+	}, [dispatch, id]);
 
 	const person = useSelector(selectPeopleDetails);
 	const cast = useSelector(selectPeopleCastMovies);
