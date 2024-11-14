@@ -7,6 +7,7 @@ import { Loading } from "../../../common/Loading";
 import { useEffect } from "react";
 import { NoMoviePoster } from "../../../common/NoMoviePoster/styled";
 import { NoPersonPoster } from "../../../common/NoPersonPoster/styled";
+import { formatDate, formatRate, formatYear } from "../../formatFunctions";
 
 export const PersonDetails = () => {
 	const { id } = useParams();
@@ -15,15 +16,13 @@ export const PersonDetails = () => {
 
 	useEffect(() => {
 		dispatch(setPeopleId(id))
-	}, [id]);
+	}, [dispatch, id]);
 
 	const person = useSelector(selectPeopleDetails);
 	const cast = useSelector(selectPeopleCastMovies);
 	const crew = useSelector(selectPeopleCrewMovies);
 	const genres = useSelector(selectGenres);
 	const genre = genres.genres;
-
-	const formatYear = (date) => date.split("-")[0];
 
 	switch (status) {
 		case "loading":
@@ -46,7 +45,7 @@ export const PersonDetails = () => {
 								<LineWrapper>
 									<LongLabel>Date of birth: </LongLabel>
 									<ShortLabel>Birth:</ShortLabel>
-									<Info>{person.birthday || "Unavaliable information"}</Info>
+									{person.birthday ? <Info>{formatDate(person.birthday)}</Info> : "Unavaliable information"}
 								</LineWrapper>
 								<LineWrapper>
 									<Label>Place of birth: </Label>
@@ -89,7 +88,7 @@ export const PersonDetails = () => {
 										</Container>
 										<RateContainer>
 											<Star />
-											<Rate>{movie.vote_average.toFixed(1)}</Rate>
+											<Rate>{formatRate(movie.vote_average)}</Rate>
 											<Votes>{movie.vote_count} votes</Votes>
 										</RateContainer>
 									</TextWrapper>
@@ -130,7 +129,7 @@ export const PersonDetails = () => {
 										</Container>
 										<RateContainer>
 											<Star />
-											<Rate>{movie.vote_average.toFixed(1)}</Rate>
+											<Rate>{formatRate(movie.vote_average)}</Rate>
 											<Votes>{movie.vote_count} votes</Votes>
 										</RateContainer>
 									</TextWrapper>

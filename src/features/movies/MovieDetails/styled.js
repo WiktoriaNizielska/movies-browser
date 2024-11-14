@@ -27,7 +27,7 @@ export const MovieTile = styled.section`
   display: grid;
   grid-template-columns: auto 1fr;
   grid-template-rows: auto 1fr;
-  margin: 64px 0;
+  row-gap: 24px;
 
   @media(max-width:${({ theme }) => theme.breakpoint.mobileMax}px){
     padding: 20px;
@@ -61,7 +61,7 @@ export const MoviePoster = styled.img`
 export const Text = styled.section`
   display: flex;
   flex-direction: column;
-  gap: 24px;
+  gap: 20px;
 
   @media(max-width:${({ theme }) => theme.breakpoint.mobileMax}px){
     gap: 8px;
@@ -142,6 +142,20 @@ export const Info = styled.p`
   @media(max-width:${({ theme }) => theme.breakpoint.mobileS}px){
     font-size: 12px;
     line-height: 14.4px;
+  }
+`;
+
+export const LongInfo = styled(Info)`
+
+  @media(max-width:${({ theme }) => theme.breakpoint.mobileS}px){
+    display: none;
+  }
+`;
+
+export const ShortInfo = styled(Info)`
+
+  @media(min-width:${({ theme }) => theme.breakpoint.mobileS}px){
+    display: none;
   }
 `;
 
@@ -283,9 +297,6 @@ export const PersonTile = styled(Link)`
   padding: 16px;
   box-shadow: ${({ theme }) => theme.shadow.tile};
   border-radius: 5px;
-  display: grid;
-  grid-template-rows: auto auto 1fr;
-  align-self: start;
   height: 100%;
   transition: 0.5s;
   text-decoration: none;
@@ -313,6 +324,8 @@ export const PersonName = styled.p`
   font-weight: 500;
   color: ${({ theme }) => theme.color.woodSmoke};
   text-align: center;
+  margin-bottom: 8px;
+  margin-top: 12px;
 
   @media (max-width: ${({ theme }) => theme.breakpoint.mobileS}px) {
     font-size: 14px;
