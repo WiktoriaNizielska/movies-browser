@@ -27,7 +27,7 @@ export const MovieTile = styled.section`
   display: grid;
   grid-template-columns: auto 1fr;
   grid-template-rows: auto 1fr;
-  margin: 64px 0;
+  row-gap: 24px;
 
   @media(max-width:${({ theme }) => theme.breakpoint.mobileMax}px){
     padding: 20px;
@@ -61,7 +61,7 @@ export const MoviePoster = styled.img`
 export const Text = styled.section`
   display: flex;
   flex-direction: column;
-  gap: 24px;
+  gap: 20px;
 
   @media(max-width:${({ theme }) => theme.breakpoint.mobileMax}px){
     gap: 8px;
