@@ -9,7 +9,7 @@ export const Backdrop = ({ backgroundURL, title, rate, votes }) => (
         <RateWrapper>
           {rate ?
             <Rate> <Star /> {formatRate(rate)}</Rate>
-            : null
+            : <Rate><Star />-</Rate>
           }
           <RateMax>&nbsp; / 10</RateMax>
         </RateWrapper>
