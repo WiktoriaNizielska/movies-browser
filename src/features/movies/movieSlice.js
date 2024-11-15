@@ -48,8 +48,6 @@ const movieSlice = createSlice({
         fetchCrew: (state, { payload: crew }) => {
             state.crew = crew;
         },
-
-        
     }
 });
 
@@ -63,9 +61,6 @@ export const selectMovieGenre = state => selectMoviesState(state).movieGenre
 export const selectCast = state => selectMoviesState(state).cast
 export const selectCrew = state => selectMoviesState(state).crew
 
-
-
-
 export const {
     fetchMovies,
     startFetch,
@@ -78,6 +73,7 @@ export const {
     fetchCast,
     fetchCrew,
 } = movieSlice.actions
+
 export default movieSlice.reducer
 
 
