@@ -118,31 +118,27 @@ export const MovieDetails = () => {
                     )}
                   </PersonContainer>
                 </Section>
-                <Section>
-
+                {crews.length > 0 ? <Section>
+                  <Header>Crew</Header>
                   <PersonContainer>
-
                     {crews.map(crew =>
-                      <>
-                        <Header>Crew</Header>
-                        <PersonTile
-                          to={`/people/${crew.id}`}
-                          key={crew.id}
-                        >
-                          {crew.profile_path ?
-                            <Image
-                              src={`https://image.tmdb.org/t/p/w185${crew.profile_path}`}
-                              alt="Profile"
-                            />
-                            : <NoPersonPoster />
-                          }
-                          <PersonName>{crew.name}</PersonName>
-                          <Character>{crew.job}</Character>
-                        </PersonTile>
-                      </>
+                      <PersonTile
+                        to={`/people/${crew.id}`}
+                        key={crew.id}
+                      >
+                        {crew.profile_path ?
+                          <Image
+                            src={`https://image.tmdb.org/t/p/w185${crew.profile_path}`}
+                            alt="Profile"
+                          />
+                          : <NoPersonPoster />
+                        }
+                        <PersonName>{crew.name}</PersonName>
+                        <Character>{crew.job}</Character>
+                      </PersonTile>
                     )}
                   </PersonContainer>
-                </Section>
+                </Section> : null}
               </Wrapper>
             </>
             : <SearchingMovieContainer />
