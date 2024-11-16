@@ -1,5 +1,5 @@
 import { useSelector } from "react-redux";
-import { selectMovieGenres,} from "../../features/movies/movieSlice";
+import { selectMovieGenres } from "../../features/movies/movieSlice";
 import {
   Container,
   GenresContainer,
@@ -17,54 +17,60 @@ import {
   Wrapper,
   Year
 } from "./styled";
-import { selectMovieQuery, selectSearchedMovies, } from "./searchingSlice";
+import { selectError, selectLoading, selectMovieQuery, selectSearchedMovies, } from "./searchingSlice";
+import { Error } from "../Error";
+import { Loading } from "../Loading";
 
 export const SearchingMovieContainer = () => {
   const searchedMovies = useSelector(selectSearchedMovies);
   const query = useSelector(selectMovieQuery);
   const movieGenres = useSelector(selectMovieGenres);
   const formatYear = (date) => date.split("-")[0];
+  const loading = useSelector(selectLoading);
+  const error = useSelector(selectError);
 
   return (
-    <Wrapper>
-      <>
-        <Header>Search results for "{query}" ({searchedMovies.length})</Header>
-        <MainPageContainer>
-          {searchedMovies.map(movie =>
-            <MainPageMovie
-              key={movie.id}
-              to={`/movies/${movie.id}`}
-            >
-              <Image
-                key={movie.id}
-                src={`https://image.tmdb.org/t/p/w300_and_h450_bestv2/${movie.backdrop_path}`} alt="Poster"
-              />
-              <TextWrapper>
-                <Container>
-                  <Title>
-                    {movie.original_title}
-                  </Title>
-                  <Year>{formatYear(movie.release_date)}</Year>
-                  <GenresContainer>
-                    {movie.genre_ids.map((id) =>
-                      <GenreTag key={id}>
-                        {movieGenres.find((genreId) =>
-                          genreId.id === id).name}
-                      </GenreTag>
-                    )}
-                  </GenresContainer>
-                </Container>
-                <RateContainer>
-                  <Star />
-                  <Rate>{movie.vote_average.toFixed(1)}</Rate>
-                  <Votes>{movie.vote_count} votes</Votes>
-                </RateContainer>
-              </TextWrapper>
-            </MainPageMovie>
-          )}
-        </MainPageContainer>
-      </>
-    </Wrapper>
+    loading ? <Loading /> :
+      error ? <Error /> :
+        <Wrapper>
+          <>
+            <Header>Search results for "{query}" ({searchedMovies.length})</Header>
+            <MainPageContainer>
+              {searchedMovies.map(movie =>
+                <MainPageMovie
+                  key={movie.id}
+                  to={`/movies/${movie.id}`}
+                >
+                  <Image
+                    key={movie.id}
+                    src={`https://image.tmdb.org/t/p/w300_and_h450_bestv2/${movie.backdrop_path}`} alt="Poster"
+                  />
+                  <TextWrapper>
+                    <Container>
+                      <Title>
+                        {movie.original_title}
+                      </Title>
+                      <Year>{formatYear(movie.release_date)}</Year>
+                      <GenresContainer>
+                        {movie.genre_ids.map((id) =>
+                          <GenreTag key={id}>
+                            {movieGenres.find((genreId) =>
+                              genreId.id === id).name}
+                          </GenreTag>
+                        )}
+                      </GenresContainer>
+                    </Container>
+                    <RateContainer>
+                      <Star />
+                      <Rate>{movie.vote_average.toFixed(1)}</Rate>
+                      <Votes>{movie.vote_count} votes</Votes>
+                    </RateContainer>
+                  </TextWrapper>
+                </MainPageMovie>
+              )}
+            </MainPageContainer>
+          </>
+        </Wrapper>
   );
 };
 

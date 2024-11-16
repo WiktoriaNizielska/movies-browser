@@ -1,6 +1,8 @@
+const apiKey = '46d96cb40fd666dc8da8fdc02b4c2019'
+
 export const getPopularMoviesList = async (page) => {
     try {
-        const response = await fetch(`https://api.themoviedb.org/3/movie/popular?api_key=46d96cb40fd666dc8da8fdc02b4c2019&page=${page}`)
+        const response = await fetch(`https://api.themoviedb.org/3/movie/popular?api_key=${apiKey}&page=${page}`)
 
         if (!response.ok) {
             throw new Error(response.statusText)
@@ -16,7 +18,7 @@ export const getPopularMoviesList = async (page) => {
 
 export const getMoviesGenres = async () => {
     try {
-        const response = await fetch('https://api.themoviedb.org/3/genre/movie/list?api_key=46d96cb40fd666dc8da8fdc02b4c2019')
+        const response = await fetch(`https://api.themoviedb.org/3/genre/movie/list?api_key=${apiKey}`)
 
         if (!response.ok) {
             throw new Error(response.statusText)
@@ -32,7 +34,7 @@ export const getMoviesGenres = async () => {
 
 export const getMoviesDetails = async (id) => {
     try {
-        const response = await fetch(`https://api.themoviedb.org/3/movie/${id}?api_key=46d96cb40fd666dc8da8fdc02b4c2019`)
+        const response = await fetch(`https://api.themoviedb.org/3/movie/${id}?api_key=${apiKey}`)
 
         if (!response.ok) {
             throw new Error(response.statusText)
@@ -48,7 +50,7 @@ export const getMoviesDetails = async (id) => {
 
 export const getMovieGenre = async (id) => {
     try {
-        const response = await fetch(`https://api.themoviedb.org/3/movie/${id}?api_key=46d96cb40fd666dc8da8fdc02b4c2019`)
+        const response = await fetch(`https://api.themoviedb.org/3/movie/${id}?api_key=${apiKey}`)
 
         if (!response.ok) {
             throw new Error(response.statusText)
@@ -66,7 +68,7 @@ export const getMovieGenre = async (id) => {
 export const getCast = async (id) => {
     try {
         const response = await fetch(
-            `https://api.themoviedb.org/3/movie/${id}/credits?api_key=46d96cb40fd666dc8da8fdc02b4c2019`
+            `https://api.themoviedb.org/3/movie/${id}/credits?api_key=${apiKey}`
         );
 
         if (!response.ok) {
@@ -83,7 +85,7 @@ export const getCast = async (id) => {
 export const getCrew = async (id) => {
     try {
         const response = await fetch(
-            `https://api.themoviedb.org/3/movie/${id}/credits?api_key=46d96cb40fd666dc8da8fdc02b4c2019`
+            `https://api.themoviedb.org/3/movie/${id}/credits?api_key=${apiKey}`
         );
 
         if (!response.ok) {
@@ -97,9 +99,10 @@ export const getCrew = async (id) => {
         throw error;
     }
 };
+
 export const getMovieByName = async (movieName) => {
     try {
-        const response = await fetch(`https://api.themoviedb.org/3/search/movie?api_key=46d96cb40fd666dc8da8fdc02b4c2019&query=${movieName}&language=en-US`)
+        const response = await fetch(`https://api.themoviedb.org/3/search/movie?api_key=${apiKey}&query=${movieName}&language=en-US`)
         if (!response.ok) {
             throw new Error(response.statusText)
         }
@@ -108,9 +111,25 @@ export const getMovieByName = async (movieName) => {
         return movie.results
     }
     catch (error) {
-
+        throw error;
     }
-}
+};
+
+export const getPersonByName = async (personName, page) => {
+    try {
+        const response = await fetch(`https://api.themoviedb.org/3/search/person?query=${personName}&api_key=${apiKey}&include_adult=false&language=en-US&page=${page}`)
+        if (!response.ok) {
+            throw new Error(response.statusText)
+        }
+        const person = await response.json()
+
+        return person.results
+    }
+    catch (error) {
+        throw error;
+    }
+};
+
 
 
 

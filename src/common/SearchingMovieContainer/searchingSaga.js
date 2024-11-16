@@ -1,18 +1,26 @@
-import { call, put, select, takeEvery } from "redux-saga/effects";
-import { getMovieByName } from "../../features/movies/fetchData";
-import { selectMovieQuery, selectSearchedMovies, setMovieName, setSearchedMovies } from "./searchingSlice";
+import { call, delay, put, select,takeLatest} from "redux-saga/effects";
+import { getMovieByName, getPersonByName } from "../../features/movies/fetchData";
+import { selectError, selectMovieQuery, setLoadingOnFalse, setLoadingOnTrue, setMovieName, setSearchedMovies, setSearchedPersons } from "./searchingSlice";
+import { selectPage } from "../Pagination/paginationSlice";
 
 function* getMovieName() {
     try {
-        const movieName = yield select(selectMovieQuery)
-        const selectMovieByName = yield call(getMovieByName, movieName)
-        yield put(setSearchedMovies(selectMovieByName))
+        const page = yield select(selectPage);
+        const query = yield select(selectMovieQuery);
+        const selectPersonByName = yield call(getPersonByName, query, page);
+        const selectMovieByName = yield call(getMovieByName, query);
+        
+        yield put(setLoadingOnTrue());
+        yield delay(1000);
+        yield put(setLoadingOnFalse());
+        yield put(setSearchedPersons(selectPersonByName));
+        yield put(setSearchedMovies(selectMovieByName));
     }
-    catch { };
+    catch  {
+        yield put(selectError());
+     };
 };
 
-
 export function* searchingSaga() {
-    
-    yield takeEvery(setMovieName.type, getMovieName);
+    yield takeLatest(setMovieName.type, getMovieName);
 };

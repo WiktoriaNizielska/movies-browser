@@ -1,49 +1,41 @@
-// export const SearchingPeopleContainer = () => {
+import { useSelector } from "react-redux";
+import { Header, Image, Name, PeopleConatiner, Tile, Wrapper, } from "./styled";
+import { selectError, selectLoading, selectMovieQuery, selectSearchedPersons, } from "../SearchingMovieContainer/searchingSlice";
+import { Pagination } from "../Pagination";
+import { NoPersonPoster } from "../NoPersonPoster/styled";
+import { Loading } from "../Loading";
+import { Error } from "../Error";
 
-//     const searchedMovies = useSelector(selectSearchedMovies);
-//     const query = useSelector(selectMovieQuery);
-//     const movieGenres = useSelector(selectMovieGenres);
-//     const formatYear = (date) => date.split("-")[0];
-  
-//     return (
-//       <Wrapper>
-//         <>
-//           <Header>Search results for "{query}" </Header>
-//           <MainPageContainer>
-//             {searchedMovies.map(movie =>
-//               <MainPageMovie
-//                 key={movie.id}
-//                 to={`/movies/${movie.id}`}
-//               >
-//                 <Image
-//                   key={movie.id}
-//                   src={`https://image.tmdb.org/t/p/w300_and_h450_bestv2/${movie.backdrop_path}`} alt="Poster"
-//                 />
-//                 <TextWrapper>
-//                   <Container>
-//                     <Title>
-//                       {movie.original_title}
-//                     </Title>
-//                     <Year>{formatYear(movie.release_date)}</Year>
-//                     <GenresContainer>
-//                       {movie.genre_ids.map((id) =>
-//                         <GenreTag key={id}>
-//                           {movieGenres.find((genreId) =>
-//                             genreId.id === id).name}
-//                         </GenreTag>
-//                       )}
-//                     </GenresContainer>
-//                   </Container>
-//                   <RateContainer>
-//                     <Star />
-//                     <Rate>{movie.vote_average.toFixed(1)}</Rate>
-//                     <Votes>{movie.vote_count} votes</Votes>
-//                   </RateContainer>
-//                 </TextWrapper>
-//               </MainPageMovie>
-//             )}
-//           </MainPageContainer>
-//         </>
-//       </Wrapper>
-//     )
-//   };
+export const SearchingPeopleContainer = () => {
+  const query = useSelector(selectMovieQuery);
+  const searchedPerson = useSelector(selectSearchedPersons);
+  const loading = useSelector(selectLoading);
+  const error = useSelector(selectError);
+
+  return (
+    loading ? <Loading /> :
+      error ? <Error /> :
+        <>
+          <Wrapper>
+            <Header>Search results for "{query}" </Header>
+            <PeopleConatiner>
+              {searchedPerson.map(person =>
+                <Tile
+                  to={`/people/${person.id}`}
+                  key={person.id}>
+                  {person.profile_path ?
+                    <Image
+                      key={person.id}
+                      src={`https://image.tmdb.org/t/p/w185${person.profile_path}`} alt="Profile"
+                    />
+                    : <NoPersonPoster />
+                  }
+                  <Name>{person.name}</Name>
+                </Tile>
+              )}
+            </PeopleConatiner>
+            <Pagination />
+          </Wrapper>
+        </>
+  )
+};
