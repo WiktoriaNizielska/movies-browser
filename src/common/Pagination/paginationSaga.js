@@ -1,12 +1,10 @@
 import { takeEvery, put } from "redux-saga/effects";
-import { setPage } from "./paginationSlice";
-import { setSearchContent } from "./barSlice";
-
+import { setPage, startPage } from "./paginationSlice";
 
 function* setSearchContentHandler() {
   yield put(setPage(1));
 }
 
 export function* paginationSaga() {
-  yield takeEvery(setSearchContent.type, setSearchContentHandler);
+  yield takeEvery(startPage.type, setSearchContentHandler);
 }

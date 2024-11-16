@@ -6,15 +6,21 @@ import { Error } from "../../../common/Error";
 import { selectStatus, fetchPeopleStatus, selectPeople } from "./peopleSlice";
 import { Pagination } from "../../../common/Pagination/index";
 import { NoPersonPoster } from "../../../common/NoPersonPoster/styled";
+import { selectPage, startPage } from "../../../common/Pagination/paginationSlice";
 
 export const PersonList = () => {
 	const dispatch = useDispatch();
 	const status = useSelector(selectStatus);
 	const people = useSelector(selectPeople);
+	const page = useSelector(selectPage);
 
 	useEffect(() => {
-		dispatch(fetchPeopleStatus());
+		dispatch(startPage());
 	}, [dispatch]);
+
+	useEffect(() => {
+		dispatch(fetchPeopleStatus(page));
+	}, [dispatch, page]);
 
 	switch (status) {
 		case "loading":
