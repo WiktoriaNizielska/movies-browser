@@ -6,6 +6,9 @@ const searchingSlice = createSlice({
         searching: false,
         query: [],
         searchedMovies: [],
+        searchedPersons: [],
+        loading: false,
+        error: false
     },
     reducers: {
         setMovieName: (state, { payload: query }) => {
@@ -14,25 +17,40 @@ const searchingSlice = createSlice({
         setSearchedMovies: (state, { payload: searchedMovies }) => {
             state.searchedMovies = searchedMovies
         },
-        setSearchingOnTrue: (state) => {
-            state.searching = true
+        setSearchedPersons: (state, { payload: searchedPerson }) => {
+            state.searchedPersons = searchedPerson
         },
-        setSearchingOnFalse: (state) => {
-            state.searching = false
+        setLoadingOnTrue: (state) => {
+            state.loading = true
+        },
+        setLoadingOnFalse: (state) => {
+            state.loading = false
+        },
+        setErrorPage: (state) => {
+            state.error = true
         }
-
 
     }
 });
 
-export const { setSearchedMovies, setMovieName, setSearchingOnTrue, setSearchingOnFalse } = searchingSlice.actions
+export const {
+    setSearchedMovies,
+    setMovieName,
+    setSearchingOnTrue,
+    setSearchingOnFalse,
+    setPersons,
+    setSearchedPersons,
+    setLoadingOnTrue,
+    setLoadingOnFalse } = searchingSlice.actions;
 
-export const selectSearching = state => state.searchingSlice
-export const selectMovieQuery = state => selectSearching(state).query
-export const selectSearchedMovies = state => selectSearching(state).searchedMovies
-export const selectSearchingIsTrue = state => selectSearching(state).searching
+export const selectSearching = state => state.searchingSlice;
+export const selectMovieQuery = state => selectSearching(state).query;
+export const selectSearchedMovies = state => selectSearching(state).searchedMovies;
+export const selectSearchedPersons = state => selectSearching(state).searchedPersons;
+export const selectLoading = state => selectSearching(state).loading;
+export const selectError = state => selectSearching(state).error;
 
-export default searchingSlice.reducer
+export default searchingSlice.reducer;
 
 
 
