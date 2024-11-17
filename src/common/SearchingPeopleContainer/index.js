@@ -1,10 +1,10 @@
 import { useSelector } from "react-redux";
 import { Header, Image, Name, PeopleConatiner, Tile, Wrapper, } from "./styled";
 import { selectError, selectLoading, selectMovieQuery, selectSearchedPersons, } from "../SearchingMovieContainer/searchingSlice";
-import { Pagination } from "../Pagination";
 import { NoPersonPoster } from "../NoPersonPoster/styled";
 import { Loading } from "../Loading";
 import { Error } from "../Error";
+import { NoResultPage } from "../NoResultPage";
 
 export const SearchingPeopleContainer = () => {
   const query = useSelector(selectMovieQuery);
@@ -15,9 +15,10 @@ export const SearchingPeopleContainer = () => {
   return (
     loading ? <Loading /> :
       error ? <Error /> :
+      searchedPerson.length === 0 ? <NoResultPage/> :
         <>
           <Wrapper>
-            <Header>Search results for "{query}" </Header>
+            <Header>Search results for "{query}" ({searchedPerson.length})</Header>
             <PeopleConatiner>
               {searchedPerson.map(person =>
                 <Tile
@@ -34,7 +35,6 @@ export const SearchingPeopleContainer = () => {
                 </Tile>
               )}
             </PeopleConatiner>
-            <Pagination />
           </Wrapper>
         </>
   )

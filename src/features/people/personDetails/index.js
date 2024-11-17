@@ -65,7 +65,7 @@ export const PersonDetails = () => {
                 <PersonImage
                   src={`https://image.tmdb.org/t/p/h632${person.profile_path}`}
                   alt="Profile" />
-                : <NoPersonPoster />
+                : <NoPersonPoster/>
               }
               <Text>
                 <Name >{person.name}</Name>

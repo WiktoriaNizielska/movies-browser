@@ -2,16 +2,50 @@ import { useParams } from "react-router-dom/cjs/react-router-dom";
 import { useEffect } from "react";
 import { Loading } from "../../../common/Loading";
 import { useDispatch, useSelector } from "react-redux";
-import { selectCast, selectCrew, selectMovieGenre, selectMoviesDetails, selectMoviesState, setId } from "../movieSlice";
+import {
+  selectCast,
+  selectCrew,
+  selectMovieGenre,
+  selectMoviesDetails,
+  selectMoviesState,
+  setId
+} from "../movieSlice";
 import { Error } from "../../../common/Error";
-import { Description, Info, InfoContainer, Label, LineWrapper, PersonTile, Text, Wrapper, GenresContainer, Header, Image, Rate, RateContainer, Votes, Year, Section, GenreTag, MovieTile, MoviePoster, TileTitle, PersonContainer, PersonName, Character, SmallStar, MaxRate, LongInfo, ShortInfo } from "./styled";
+import {
+  Description,
+  Info,
+  InfoContainer,
+  Label,
+  LineWrapper,
+  PersonTile,
+  Text,
+  Wrapper,
+  GenresContainer,
+  Header,
+  Image,
+  Rate,
+  RateContainer,
+  Votes,
+  Year,
+  Section,
+  GenreTag,
+  MovieTile,
+  MoviePoster,
+  TileTitle,
+  PersonContainer,
+  PersonName,
+  Character,
+  SmallStar,
+  MaxRate,
+  LongInfo,
+  ShortInfo
+} from "./styled";
 import { NoMoviePoster } from "../../../common/NoMoviePoster/styled";
 import { Backdrop } from "./Backdrop";
 import { formatCountries, formatDate, formatRate, formatShortCountries } from "../../formatFunctions";
 import { NoPersonPoster } from "../../../common/NoPersonPoster/styled";
 import { formatYear } from "../../formatFunctions";
 import { selectMovieQuery } from "../../../common/SearchingMovieContainer/searchingSlice";
-import { SearchContainer } from "../../../common/Input/styled";
 import { SearchingMovieContainer } from "../../../common/SearchingMovieContainer";
 
 export const MovieDetails = () => {
