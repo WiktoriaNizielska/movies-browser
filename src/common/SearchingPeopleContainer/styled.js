@@ -31,7 +31,7 @@ export const Wrapper = styled.main`
   margin: auto;
 
   @media(max-width:${({ theme }) => theme.breakpoint.laptopMax}px){
-    margin: 0 16px;
+    margin: 0 16px 30px;
   }
 `;
 
@@ -41,15 +41,12 @@ export const Image = styled.img`
   aspect-ratio: 2 / 3;
   display: block;
   margin: auto;
-  
-  @media(max-width:${({ theme }) => theme.breakpoint.tabletHorizontalMax}px){
-    width: 100%;
-  }
+  width: 100%;
 `;
 
 export const PeopleConatiner = styled.section`
   display: grid;
-  grid-template-columns: repeat(6, 1fr);
+  grid-template-columns: repeat(5, 1fr);
   gap: 24px;
   justify-content: center;
 
