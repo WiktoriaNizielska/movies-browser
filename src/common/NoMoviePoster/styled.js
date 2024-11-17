@@ -18,3 +18,16 @@ export const NoMoviePoster = styled.div`
     width: 114px;
   }
 `;
+
+export const NoMoviePosterLarge = styled.div`
+  aspect-ratio: 2 / 3;
+  background-color: ${({ theme }) => theme.color.silver};
+  border-radius: 5px;
+  object-fit: cover;
+  text-align: center;
+  background-image: url(${cameraIcon});
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 28%;
+  grid-row: span 2;
+`;

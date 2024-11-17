@@ -218,6 +218,8 @@ export const MainPageMovie = styled(Link)`
 
   @media(max-width:${({ theme }) => theme.breakpoint.mobileS}px){
     grid-template-columns: auto 1fr;
+    padding: 9px;
+    row-gap: 0;
   }
 `;
 
@@ -234,7 +236,6 @@ export const Image = styled.img`
   
   @media (max-width: ${({ theme }) => theme.breakpoint.mobileS}px) {
     max-width: 114px;
-    flex-shrink: 0;
   }
 `;
 
@@ -243,6 +244,10 @@ export const TextWrapper = styled.div`
   grid-template-rows: 1fr auto ;
   align-items: end;
   gap: 10px;
+
+  @media(max-width:${({ theme }) => theme.breakpoint.mobileS}px){
+    gap: 0;
+  }
 `;
 
 export const Container = styled.div`
@@ -257,7 +262,7 @@ export const Container = styled.div`
   }
 
   @media(max-width:${({ theme }) => theme.breakpoint.mobileS}px){
-    margin: 0 0 8px;
+    margin: 0;
   }
 `;
 
@@ -307,6 +312,11 @@ export const GenreTag = styled.li`
     font-size: 13px;
     padding: 4px 8px;
   }
+
+  @media(max-width:${({ theme }) => theme.breakpoint.mobileS}px){
+    font-size: 11px;
+    padding: 3px 7px;
+  }
 `;
 
 export const RateContainer = styled.div`
@@ -326,11 +336,19 @@ export const RateContainer = styled.div`
 export const Rate = styled.p`
   font-weight: 600;
   color: ${({ theme }) => theme.color.woodSmoke};
+
+  @media(max-width:${({ theme }) => theme.breakpoint.mobileS}px){
+    margin: 2px 0 0;
+  }
 `;
 
 export const Votes = styled.p`
   font-weight: 400;
   color: ${({ theme }) => theme.color.waterloo};
+
+  @media(max-width:${({ theme }) => theme.breakpoint.mobileS}px){
+    margin: 0;
+  }
 `;
 
 export const Star = styled(StarIcon)`

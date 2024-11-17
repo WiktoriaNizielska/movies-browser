@@ -40,7 +40,7 @@ import {
   LongInfo,
   ShortInfo
 } from "./styled";
-import { NoMoviePoster } from "../../../common/NoMoviePoster/styled";
+import { NoMoviePosterLarge } from "../../../common/NoMoviePoster/styled";
 import { Backdrop } from "./Backdrop";
 import { formatCountries, formatDate, formatRate, formatShortCountries } from "../../formatFunctions";
 import { NoPersonPoster } from "../../../common/NoPersonPoster/styled";
@@ -85,7 +85,7 @@ export const MovieDetails = () => {
                     <MoviePoster
                       src={`https://image.tmdb.org/t/p/w342${movieDetails.poster_path}`}
                       alt="Poster" />
-                    : <NoMoviePoster />
+                    : <NoMoviePosterLarge />
                   }
                   <Text>
                     <TileTitle >{movieDetails.title}</TileTitle>
@@ -131,48 +131,54 @@ export const MovieDetails = () => {
                   </Text>
                   <Description>{movieDetails.overview || "Unavaliable information"}</Description>
                 </MovieTile>
-                <Section>
-                  <Header>Cast</Header>
-                  <PersonContainer>
-                    {casts.map(cast =>
-                      <PersonTile
-                        to={`/people/${cast.id}`}
-                        key={cast.id}
-                      >
-                        {cast.profile_path ?
-                          <Image
-                            src={`https://image.tmdb.org/t/p/w185${cast.profile_path}`}
-                            alt="Profile"
-                          />
-                          : <NoPersonPoster />
-                        }
-                        <PersonName>{cast.name}</PersonName>
-                        <Character>{cast.character}</Character>
-                      </PersonTile>
-                    )}
-                  </PersonContainer>
-                </Section>
-                {crews.length > 0 ? <Section>
-                  <Header>Crew</Header>
-                  <PersonContainer>
-                    {crews.map(crew =>
-                      <PersonTile
-                        to={`/people/${crew.id}`}
-                        key={crew.id}
-                      >
-                        {crew.profile_path ?
-                          <Image
-                            src={`https://image.tmdb.org/t/p/w185${crew.profile_path}`}
-                            alt="Profile"
-                          />
-                          : <NoPersonPoster />
-                        }
-                        <PersonName>{crew.name}</PersonName>
-                        <Character>{crew.job}</Character>
-                      </PersonTile>
-                    )}
-                  </PersonContainer>
-                </Section> : null}
+                {casts.length > 0 ?
+                  <Section>
+                    <Header>Cast</Header>
+                    <PersonContainer>
+                      {casts.map(cast =>
+                        <PersonTile
+                          to={`/people/${cast.id}`}
+                          key={cast.id}
+                        >
+                          {cast.profile_path ?
+                            <Image
+                              src={`https://image.tmdb.org/t/p/w185${cast.profile_path}`}
+                              alt="Profile"
+                            />
+                            : <NoPersonPoster />
+                          }
+                          <PersonName>{cast.name}</PersonName>
+                          <Character>{cast.character}</Character>
+                        </PersonTile>
+                      )}
+                    </PersonContainer>
+                  </Section>
+                  : null
+                }
+                {crews.length > 0 ?
+                  <Section>
+                    <Header>Crew</Header>
+                    <PersonContainer>
+                      {crews.map(crew =>
+                        <PersonTile
+                          to={`/people/${crew.id}`}
+                          key={crew.id}
+                        >
+                          {crew.profile_path ?
+                            <Image
+                              src={`https://image.tmdb.org/t/p/w185${crew.profile_path}`}
+                              alt="Profile"
+                            />
+                            : <NoPersonPoster />
+                          }
+                          <PersonName>{crew.name}</PersonName>
+                          <Character>{crew.job}</Character>
+                        </PersonTile>
+                      )}
+                    </PersonContainer>
+                  </Section>
+                  : null
+                }
               </Wrapper>
             </>
             : <SearchingMovieContainer />

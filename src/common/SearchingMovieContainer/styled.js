@@ -2,6 +2,15 @@ import styled from "styled-components";
 import { ReactComponent as StarIcon } from '../../images/star.svg';
 import { Link } from "react-router-dom/cjs/react-router-dom";
 
+export const Wrapper = styled.main`
+  max-width: 1368px;
+  margin: auto;
+
+  @media(max-width:${({ theme }) => theme.breakpoint.laptopMax}px){
+    margin: 0 16px 30px;
+  }
+`;
+
 export const MainPageContainer = styled.section`
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr;
@@ -22,14 +31,6 @@ export const MainPageContainer = styled.section`
   }
 `;
 
-export const Wrapper = styled.main`
-  max-width: 1368px;
-  margin: auto;
-
-  @media(max-width:${({ theme }) => theme.breakpoint.laptopMax}px){
-    margin: 0 16px;
-  }
-`;
 
 export const Header = styled.header`
   font-size: 36px;
@@ -92,6 +93,8 @@ export const MainPageMovie = styled(Link)`
 
   @media(max-width:${({ theme }) => theme.breakpoint.mobileS}px){
     grid-template-columns: auto 1fr;
+    row-gap: 0;
+    padding: 8px;
   }
 `;
 
