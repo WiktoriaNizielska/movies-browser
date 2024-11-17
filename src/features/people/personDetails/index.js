@@ -65,7 +65,7 @@ export const PersonDetails = () => {
                 <PersonImage
                   src={`https://image.tmdb.org/t/p/h632${person.profile_path}`}
                   alt="Profile" />
-                : <NoPersonPoster/>
+                : <NoPersonPoster />
               }
               <Text>
                 <Name >{person.name}</Name>
@@ -83,88 +83,92 @@ export const PersonDetails = () => {
               </Text>
               <Description>{person.biography || "Unavaliable information"}</Description>
             </PersonTile>
-            <Section>
-              <Header>Cast({cast.length})</Header>
-              <MainPageContainer>
-                {cast.map(movie =>
-                  <MainPageMovie
-                    key={movie.id}
-                    to={`/movies/${movie.id}`}
-                  >
-                    {movie.poster_path ?
-                      (<Image
-                        key={movie.id}
-                        src={`https://image.tmdb.org/t/p/w300_and_h450_bestv2/${movie.poster_path}`}
-                        alt="Poster"
-                      />)
-                      : <NoMoviePoster />
-                    }
-                    <TextWrapper>
-                      <Container>
-                        <Title>
-                          {movie.title}
-                        </Title>
-                        {movie.release_date ? <Year>{movie.character} ({formatYear(movie.release_date)})</Year> : null}
-                        <GenresContainer>
-                          {movie.genre_ids.map((id) =>
-                            <GenreTag key={id}>
-                              {genre.find((genreId) =>
-                                genreId.id === id).name}
-                            </GenreTag>
-                          )}
-                        </GenresContainer>
-                      </Container>
-                      <RateContainer>
-                        <Star />
-                        <Rate>{formatRate(movie.vote_average)}</Rate>
-                        <Votes>{movie.vote_count} votes</Votes>
-                      </RateContainer>
-                    </TextWrapper>
-                  </MainPageMovie>
-                )}
-              </MainPageContainer>
-            </Section>
-            <Section>
-              <Header>Crew({crew.length})</Header>
-              <MainPageContainer>
-                {crew.map(movie =>
-                  <MainPageMovie
-                    key={movie.id}
-                    to={`/movies/${movie.id}`}
-                  >
-                    {movie.poster_path ?
-                      (<Image
-                        key={movie.id}
-                        src={`https://image.tmdb.org/t/p/w300_and_h450_bestv2/${movie.poster_path}`}
-                        alt="Poster"
-                      />)
-                      : <NoMoviePoster />
-                    }
-                    <TextWrapper>
-                      <Container>
-                        <Title>
-                          {movie.title}
-                        </Title>
-                        {movie.release_date ? <Year>{movie.job} ({formatYear(movie.release_date)})</Year> : null}
-                        <GenresContainer>
-                          {movie.genre_ids.map((id) =>
-                            <GenreTag key={id}>
-                              {genre.find((genreId) =>
-                                genreId.id === id).name}
-                            </GenreTag>
-                          )}
-                        </GenresContainer>
-                      </Container>
-                      <RateContainer>
-                        <Star />
-                        <Rate>{formatRate(movie.vote_average)}</Rate>
-                        <Votes>{movie.vote_count} votes</Votes>
-                      </RateContainer>
-                    </TextWrapper>
-                  </MainPageMovie>
-                )}
-              </MainPageContainer>
-            </Section>
+            {cast.length > 0 ?
+              <Section>
+                <Header>Cast({cast.length})</Header>
+                <MainPageContainer>
+                  {cast.map(movie =>
+                    <MainPageMovie
+                      key={movie.id}
+                      to={`/movies/${movie.id}`}
+                    >
+                      {movie.poster_path ?
+                        (<Image
+                          key={movie.id}
+                          src={`https://image.tmdb.org/t/p/w300_and_h450_bestv2/${movie.poster_path}`}
+                          alt="Poster"
+                        />)
+                        : <NoMoviePoster />
+                      }
+                      <TextWrapper>
+                        <Container>
+                          <Title>
+                            {movie.title}
+                          </Title>
+                          {movie.release_date ? <Year>{movie.character} ({formatYear(movie.release_date)})</Year> : null}
+                          <GenresContainer>
+                            {movie.genre_ids.map((id) =>
+                              <GenreTag key={id}>
+                                {genre.find((genreId) =>
+                                  genreId.id === id).name}
+                              </GenreTag>
+                            )}
+                          </GenresContainer>
+                        </Container>
+                        <RateContainer>
+                          <Star />
+                          <Rate>{formatRate(movie.vote_average)}</Rate>
+                          <Votes>{movie.vote_count} votes</Votes>
+                        </RateContainer>
+                      </TextWrapper>
+                    </MainPageMovie>
+                  )}
+                </MainPageContainer>
+              </Section>
+              : null}
+            {crew.length > 0 ?
+              <Section>
+                <Header>Crew({crew.length})</Header>
+                <MainPageContainer>
+                  {crew.map(movie =>
+                    <MainPageMovie
+                      key={movie.id}
+                      to={`/movies/${movie.id}`}
+                    >
+                      {movie.poster_path ?
+                        (<Image
+                          key={movie.id}
+                          src={`https://image.tmdb.org/t/p/w300_and_h450_bestv2/${movie.poster_path}`}
+                          alt="Poster"
+                        />)
+                        : <NoMoviePoster />
+                      }
+                      <TextWrapper>
+                        <Container>
+                          <Title>
+                            {movie.title}
+                          </Title>
+                          {movie.release_date ? <Year>{movie.job} ({formatYear(movie.release_date)})</Year> : null}
+                          <GenresContainer>
+                            {movie.genre_ids.map((id) =>
+                              <GenreTag key={id}>
+                                {genre.find((genreId) =>
+                                  genreId.id === id).name}
+                              </GenreTag>
+                            )}
+                          </GenresContainer>
+                        </Container>
+                        <RateContainer>
+                          <Star />
+                          <Rate>{formatRate(movie.vote_average)}</Rate>
+                          <Votes>{movie.vote_count} votes</Votes>
+                        </RateContainer>
+                      </TextWrapper>
+                    </MainPageMovie>
+                  )}
+                </MainPageContainer>
+              </Section>
+              : null}
           </Wrapper>
           :
           <SearchingPeopleContainer />
