@@ -40,7 +40,7 @@ import {
   LongInfo,
   ShortInfo
 } from "./styled";
-import { NoMoviePoster } from "../../../common/NoMoviePoster/styled";
+import { NoMoviePosterLarge } from "../../../common/NoMoviePoster/styled";
 import { Backdrop } from "./Backdrop";
 import { formatCountries, formatDate, formatRate, formatShortCountries } from "../../formatFunctions";
 import { NoPersonPoster } from "../../../common/NoPersonPoster/styled";
@@ -85,7 +85,7 @@ export const MovieDetails = () => {
                     <MoviePoster
                       src={`https://image.tmdb.org/t/p/w342${movieDetails.poster_path}`}
                       alt="Poster" />
-                    : <NoMoviePoster />
+                    : <NoMoviePosterLarge />
                   }
                   <Text>
                     <TileTitle >{movieDetails.title}</TileTitle>

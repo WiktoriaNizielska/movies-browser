@@ -29,8 +29,13 @@ export const MovieTile = styled.section`
   grid-template-rows: auto 1fr;
   row-gap: 24px;
 
+  @media(max-width:${({ theme }) => theme.breakpoint.tabletVerticalMax}px){
+    row-gap: 0;
+  }
+
   @media(max-width:${({ theme }) => theme.breakpoint.mobileMax}px){
     padding: 20px;
+    row-gap: 24px;
   }
 
   @media(max-width:${({ theme }) => theme.breakpoint.mobileS}px){
@@ -62,6 +67,10 @@ export const Text = styled.section`
   display: flex;
   flex-direction: column;
   gap: 20px;
+
+  @media(max-width:${({ theme }) => theme.breakpoint.tabletVerticalMax}px){
+    gap: 4px;
+  }
 
   @media(max-width:${({ theme }) => theme.breakpoint.mobileMax}px){
     gap: 8px;
@@ -97,6 +106,10 @@ export const InfoContainer = styled.div`
   display: flex;
   flex-direction: column;
   gap: 6px;
+
+  @media(max-width:${({ theme }) => theme.breakpoint.tabletVerticalMax}px){
+    gap: 0;
+  }
 
   @media(max-width:${({ theme }) => theme.breakpoint.mobileMax}px){
     gap: 10px;
